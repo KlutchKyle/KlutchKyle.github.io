@@ -1,0 +1,102 @@
+#body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-size: auto;
+    -webkit-animation: fadein 0.2s linear 1 normal;
+    -webkit-animation-fill-mode: forwards;
+}
+
+#content-wrapper {
+    width: 100%;
+    height: 200%;
+}
+
+#clock {
+    position: fixed;
+    color: white;
+    font-family: "Segoe UI Light";
+    font-size: 220px;
+    font-weight: 400;
+    bottom: 0;
+    padding-bottom: 195px;
+    padding-left: 0;
+}
+
+#date {
+    position: fixed;
+    color: white;
+    font-family: "Segoe UI Light";
+    font-size: 80px;
+    font-weight: 100;
+    bottom: 0;
+    padding-bottom: 125px;
+    padding-left: 0px;
+}
+
+#demo {
+    Color: white;
+}
+
+#bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: #FFF;
+    background-size: cover !important;
+}
+
+#info-container {
+    position: fixed;
+}
+#content-container {
+    position: fixed;
+    float: left;
+    padding-left: 125px;
+    min-height:100%;
+    bottom: 0;
+    padding-bottom: 100;
+
+}
+
+#batteryImage {
+    position: fixed;
+    float: right;
+    Width: 100%;
+    height: auto;
+    right: 0;
+    padding-right: 75px;
+    bottom: 0;
+    padding-bottom: 75px;
+}
+#wifiMeter {
+    position: fixed;
+    float: right;
+    width: 100%;
+    height: auto;
+    right: 0;
+    padding-right: 225px;
+    bottom: 0;
+    padding-bottom: 85.5px;
+}
+
+
+/*
+Explicitly define a Segoe UI font-family so that we can assign Segoe UI 
+Semilight to an appropriate font-weight.
+*/
+@font-face {
+    font-family: "Segoe UI Light";
+    font-weight: 200;
+    src: url("/System/Library/Fonts/segoeuil.ttf");
+}
+
+
+@-webkit-keyframes fadein {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
