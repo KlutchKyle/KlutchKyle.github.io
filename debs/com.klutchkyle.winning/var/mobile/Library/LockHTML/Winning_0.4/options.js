@@ -1,5 +1,4 @@
-var test = true; //no options with this version. Feel free to make suggestions! :)
-
+var twelvehour = false; // Toggle 12/24-hour clock
 
 
 
