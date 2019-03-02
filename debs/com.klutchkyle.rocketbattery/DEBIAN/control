@@ -1,0 +1,10 @@
+Package: com.klutchkyle.rocketbattery
+Name: Rocket Battery
+Version: 0.1 
+Architecture: iphoneos-arm
+Description: Rocket League Boost like Battery Gauge!
+Maintainer: KlutchKyle <kylethelegendmc@gmail.com
+Depends: firmware (>= 10.0), com.matchstic.xenhtml, com.junesiphone.xeninfo (>= 2.0)
+Author: KlutchKyle <kylethelegendmc@gmail.com>
+Section: Widgets
+Tag: purpose::widgets	

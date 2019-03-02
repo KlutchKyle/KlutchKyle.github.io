@@ -1,0 +1,45 @@
+#body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-size: auto;
+    -webkit-animation: fadein 0.2s linear 1 normal;
+    -webkit-animation-fill-mode: forwards;
+}
+
+#content-wrapper {
+    width: 100%;
+    height: 200%;
+}
+
+
+#bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: #FFF;
+    background-size: cover !important;
+}
+
+
+#content-container {
+    padding-top: 24%;
+}
+
+#batteryImg {
+    width: 25%;
+    max-width:100%;
+    height: auto;
+    border-radius: 50%;
+    border: none;
+    margin-bottom: -1px;
+}
+
+@-webkit-keyframes fadein {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
