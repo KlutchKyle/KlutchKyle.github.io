@@ -49,9 +49,6 @@
     background-size: cover !important;
 }
 
-#info-container {
-    position: fixed;
-}
 #content-container {
     position: fixed;
     float: left;
@@ -72,6 +69,7 @@
     bottom: 0;
     padding-bottom: 75px;
 }
+
 #wifiMeter {
     position: fixed;
     float: right;
@@ -82,7 +80,6 @@
     bottom: 0;
     padding-bottom: 85.5px;
 }
-
 
 /*
 Explicitly define a Segoe UI font-family so that we can assign Segoe UI 
