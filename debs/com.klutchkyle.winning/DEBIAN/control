@@ -1,10 +1,10 @@
 Package: com.klutchkyle.winning
 Name: Winning
-Version: 0.4 
+Version: 1.0 
 Architecture: iphoneos-arm
 Description: Windows 10 like lock screen for XenHTML
 Maintainer: KlutchKyle <kylethelegendmc@gmail.com
-Depends: firmware (>= 10.0), com.matchstic.xenhtml, com.junesiphone.xeninfo (>= 2.0)
+Depends: firmware (>= 10.0), com.matchstic.xenhtml
 Author: KlutchKyle <kylethelegendmc@gmail.com>
 Section: Widgets
-Tag: purpose::widgets	
+Tag: purpose::widgets
