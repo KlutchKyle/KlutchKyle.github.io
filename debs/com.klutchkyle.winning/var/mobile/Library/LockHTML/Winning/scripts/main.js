@@ -5,7 +5,7 @@ function mainUpdate(type){
         var level = Math.ceil((batteryPercent) / 10) * 10;
         // Set Battery Image and Percent
         document.getElementById("batteryImg").src = "imgs/" + state + level + ".png";
-        document.getElementById("bPercent").innerHTML = level + "%";
+        document.getElementById("bPercent").innerHTML = batteryPercent + "%";
 
     } else if (type == "statusbar") { // Get Status Bar Information
         var wifiStat = (wifiName)
