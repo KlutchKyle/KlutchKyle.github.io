@@ -19,14 +19,14 @@ function mainUpdate(type){
         if (wifiStat == "NA") { //Not Connected to Wifi
             wifiConnect = 0;
             document.getElementById("wMtr").style.visibility = "hidden";
-            document.getElementById('sMtr').style.paddingRight = "225px";
+            document.getElementById('sMtr').style.right = "200px";
 
         } else { //Connected to Wifi
             wifiConnect = 1
             if (wifiView == true) {
                 document.getElementById("wMtr").style.visibility = "Visible";
-                document.getElementById('sMtr').style.paddingRight = "350px";
-                document.getElementById('wMtr').style.paddingRight = "225px";
+                document.getElementById('sMtr').style.right = "325px";
+                document.getElementById('wMtr').style.right = "200px";
                 document.getElementById("wMtr").src = "imgs/wifiBars" + wifiBars + ".png";
             }
 

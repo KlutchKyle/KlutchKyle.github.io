@@ -18,7 +18,7 @@
     position: fixed;
     color: white;
     font-family: "Segoe UI Light";
-    font-size: 220px;
+    font-size: 200px;
     font-weight: 400;
     bottom: 0;
     padding-bottom: 245px;
@@ -29,7 +29,7 @@
     position: fixed;
     color: white;
     font-family: "Segoe UI Light";
-    font-size: 80px;
+    font-size: 72px;
     font-weight: 100;
     bottom: 0;
     padding-bottom: 175px;
@@ -67,24 +67,18 @@
 
 #content-container {
     position: relative;
-    float: left;
     padding-left: 125px;
     min-height:100%;
     bottom: 0;
-    padding-bottom: 100;
-    width: 50%;
+    padding-bottom: 0;
 
 }
 
 #batteryImg {
     position: fixed;
-    float: right;
-    Width: 100%;
     height: auto;
-    right: 75px;
-    padding-right: 0px;
-    bottom: 75px;
-    padding-bottom: 0px;
+    bottom: 0px;
+    right: 50px;
     filter: invert(0%);
 
 }
@@ -95,10 +89,8 @@
     font-size: 40px;
     color: white;
     font-family: "Segoe UI Light";
-    bottom: 0;
-    padding-bottom: 150px;
-    right: 0px;
-    padding-right: 90px;
+    bottom: -5px;
+    right: 60px;
 }
 
 #wMtr {
@@ -106,19 +98,15 @@
     float: right;
     width: 100%;
     height: auto;
-    right: 0;
-    padding-right: 225px;
-    bottom: 0;
-    padding-bottom: 85.5px;
+    right: 200px;
+    bottom: 85.5;
 }
 #sMtr {
     position: fixed;
     float: right;
     width: 100%;
-    right: 0;
-    padding-right: 350px;
-    bottom: 0;
-    padding-bottom: 85.5px;
+    right: 325px;
+    bottom: 85.5px;
 }
 
 @font-face {

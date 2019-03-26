@@ -17,9 +17,9 @@
         <div id="content-container" style="float:right; margin:0; width:100%">
             <div id="clock"><a id="h"></a id="clk">:<a id="m"></a></div>
             <div id="date"></div>
-            <img id="sMtr" src="imgs/sbar3.png" style="width: 75px">
-            <img id="wMtr" src="imgs/wifiBars2.png" style="width: 75px">
-            <img id="batteryImg" src="imgs/070.png" style="width: 100px">
+            <img id="sMtr" src="imgs/sbar3.png" style="width: 65px">
+            <img id="wMtr" src="imgs/wifiBars2.png" style="width: 65px">
+            <img id="batteryImg" src="imgs/070.png" style="width: 90px">
             <div id="bBorder"><div id="bBar"></div></div>
             <div id="bPercent">69%</div>
         </div>                                            
@@ -27,7 +27,7 @@
 
 <script type="text/javascript">
     //scale resolution
-    var siteWidth = 1528;
+    var siteWidth = 1100;
     var scale = screen.width / siteWidth
     document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');  
     document.getElementById("body").style = "-webkit-animation: fadein 0.2s linear 1 normal; -webkit-animation-fill-mode: forwards";
@@ -87,7 +87,7 @@
 
     if (batteryPercentView == true) { // Show Battery Percent Setting
         document.getElementById('bPercent').style.visibility = "Visible";
-        document.getElementById('batteryImg').style.paddingBottom = "56.5px";
+        document.getElementById('batteryImg').style.paddingBottom = "60px";
         document.getElementById('bPercent').style.paddingBottom = "125";
     } else if (batteryPercentView == false) {
         document.getElementById('bPercent').style.visibility = "Hidden";
@@ -102,25 +102,25 @@
     function init() { 
         // Reposition the elements after hiding them
         if (batteryView == false && wifiView == true && signalBarView == true) {
-            document.getElementById('sMtr').style.paddingRight = "200px";
-            document.getElementById('wMtr').style.paddingRight = "75px";
+            document.getElementById('sMtr').style.right = "175px";
+            document.getElementById('wMtr').style.right = "50px";
             document.getElementById('bPercent').visibility = "hidden";
         } else if (batteryView == false && wifiView == false && signalBarView == true) {
-            document.getElementById('sMtr').style.paddingRight = "75px";
+            document.getElementById('sMtr').style.right = "50px";
         } else if (batteryView == true && wifiView == false && signalBarView == true) {
-            document.getElementById('sMtr').style.paddingRight = "225px";
-            document.getElementById('batteryImg').style.paddingRight = "75px";
+            document.getElementById('sMtr').style.right = "200px";
+            document.getElementById('batteryImg').style.right = "50px";
         } else if (batteryView == false && wifiView == true && signalBarView == false) {
-            document.getElementById('wMtr').style.paddingRight = "75px";
+            document.getElementById('wMtr').style.right = "50px";
             document.getElementById('sMtr').visibility = "hidden";
 
         }
     }
 
     // Limit Interaction
-    document.addEventListener('gesturestart', function (e) {
+/*    document.addEventListener('gesturestart', function (e) {
     e.preventDefault();
-    });
+    });*/
 </script>
 </body>
 </html>
