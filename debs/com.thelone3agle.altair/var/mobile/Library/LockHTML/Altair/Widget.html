@@ -1,0 +1,74 @@
+<!--
+	Altair - by Eagle (@TheLone3agle). Inspired by Muzik (@thatMshl).
+-->
+
+<html>
+    <head>
+		<meta content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewpoint">
+		<link rel="stylesheet" href="Style.css"/>
+    </head>
+
+<body>
+    <div class="container">
+		<div id="bg">
+			<div id="image">
+				<img id="artwork" src="img/noalbumart.png"></div>
+			<div id="title"></div>
+			<div id="artist"></div>
+                   <img id="prev" src="img/prev.png" onclick="previousTrack()">
+                   <img id="playPause" src="img/pause.png" onclick="playPause()">
+                   <img id="next" src="img/next.png" onclick="nextTrack()">
+		</div>
+		</div>
+	</div>
+
+<script>
+	var doc = document,
+		titleDiv = doc.getElementById('title'),
+		artistDiv = doc.getElementById('artist'),
+		nextDiv = doc.getElementById('next'),
+		prevDiv = doc.getElementById('prev'),
+		playDiv = doc.getElementById('playPause');
+	      
+             playDiv.style.filter = "invert(1)";
+             nextDiv.style.filter = "invert(1)";
+             prevDiv.style.filter = "invert(1)";
+
+function mainUpdate(type) {
+    var albumart = document.querySelector('#artwork');
+    if(type == "music") {
+        
+        if(isplaying){ 
+       
+        playDiv.src = "img/pause.png";
+        artistDiv.innerHTML = artist;
+        titleDiv.innerHTML = title;
+       
+       art = new Image();
+	        art.onload = function () {
+	            albumart.src = "file:///var/mobile/Documents/Artwork.jpg?" + (new Date()).getTime();
+	        };
+					art.src = "file:///var/mobile/Documents/Artwork.jpg?" + (new Date()).getTime();
+
+        } else {
+            playDiv.src ="img/play.png";
+        }
+    }
+}    
+</script>    
+
+<script>
+//button functions
+    function previousTrack() {
+        window.location = 'xeninfo:prevtrack';
+    }
+    function playPause() {
+        window.location = 'xeninfo:playpause';
+        }
+    function nextTrack() {
+        window.location = 'xeninfo:nexttrack'; 
+    }
+</script>
+
+    </body>
+</html>

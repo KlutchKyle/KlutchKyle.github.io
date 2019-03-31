@@ -1,0 +1,99 @@
+
+body{
+  margin:0;
+  padding:0;
+}
+
+.container{
+  position: absolute;
+  width: 100%;
+  bottom: 15px;
+}
+
+.container div{
+  position: absolute;
+}
+
+#bg{
+  display: block;
+  vertical-align: middle;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100px;
+  background-color: rgba(0,0,0,0.55);
+  -webkit-backdrop-filter:blur(0px);
+  border-radius: 0px;
+}
+
+#artwork{
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100px;
+  height: 100px;
+  -webkit-transition: 1s;
+  border-radius: 0px
+}
+
+#title{
+  color: white;
+  position: absolute;
+  text-align: left;
+  top: 9px;
+  left: 115px;
+  width: 66%;
+  height: 30px;
+  font-weight: 320;
+  font-size: 20px;
+  white-space: nowrap;
+  overflow: scroll;
+ font-family: '-apple-system-font';
+}
+
+#artist{
+  color: white;
+  position: absolute;
+  text-align: left;
+  top: 35px;
+  left: 115px;
+  width: 66%;
+  height: 25px;
+  font-weight: 100;
+  font-size: 15px;
+  white-space: nowrap;
+  overflow: scroll;
+  font-family: '-apple-system-font';
+}
+
+#playPause{
+  position: absolute;
+  top: 62px;
+  left: 59%;
+  width: 30px;
+  height: 30px;
+}
+
+#next{
+  position: absolute;
+  top: 62px;
+  left: 79%;
+  width: 30px;
+  height: 30px;
+}
+
+#prev{
+  position: absolute;
+  top: 62px;
+  left: 39%;
+  width: 30px;
+  height: 30px;
+}
+
+@font-face{
+      font-family: Example;
+      font-weight: 400;
+      src:url("/FontPath/Example.ttf");
+}
