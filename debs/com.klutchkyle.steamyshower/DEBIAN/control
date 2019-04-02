@@ -1,6 +1,6 @@
 Package: com.klutchkyle.steamyshower
 Name: SteamyShower
-Version: 1.0
+Version: 1.0.1
 Architecture: iphoneos-arm
 Description: Dynamic wallpaper blur widget for XenHTML
 Maintainer: KlutchKyle <kylethelegendmc@gmail.com
