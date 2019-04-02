@@ -1,1 +1,1 @@
-dpkg-deb -b debs/com.thelone3agle.altair
+dpkg-deb -b debs/com.klutchkyle.steamyshower

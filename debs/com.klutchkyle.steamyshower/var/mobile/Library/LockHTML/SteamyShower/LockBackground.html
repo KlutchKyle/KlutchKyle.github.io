@@ -1,0 +1,45 @@
+<html>
+    <meta content="user-scalable=no"/>
+    <meta charset=UTF-8>
+    <title>SteamyShower</title>
+    <meta name="viewport", content="width=1280" content="initial-scale=1">
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" charset="utf-8" src="options.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/main.js"></script> 
+    <script type="text/javascript" charset="utf-8" src="scripts/vibrant.js"></script>
+
+ </head>
+
+<body id="body" onload="" background="">
+
+    <div id="blur"> </div>   
+    <div id="colorLayer"> </div>
+
+
+
+<script type="text/javascript">
+    var siteWidth = 1200;
+    var scale = screen.width / siteWidth
+    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');  
+    document.getElementById("body").style = "-webkit-animation: fadein 0.2s linear 1 normal; -webkit-animation-fill-mode: forwards";
+    document.getElementById('colorLayer').style.backgroundColor = "rgba(" + blurRed + ", " + blurGreen + ", " + blurBlue + ", " + blurOpacity + ")";
+    document.getElementById('blur').style.WebkitBackdropFilter = "blur(" + blurRadius + ")";
+
+if (matchColor === true) {    
+    var colorMatch = function () {
+    let v = new Vibrant('/var/mobile/Library/SpringBoard/LockBackgroundThumbnail.jpg')
+    wallPalette = palette => wallColor = palette;
+    v.getPalette().then(function getColor(palette) {
+        var wallColor = this.wallPalette(palette.DarkVibrant.getHex());
+        console.log(wallColor);
+        document.getElementById('colorLayer').style.backgroundColor = wallColor;
+        document.getElementById('colorLayer').style.opacity = blurOpacity;    
+    });
+}
+colorMatch();
+}
+
+</script>
+</body>
+</html>
