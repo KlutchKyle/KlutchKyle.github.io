@@ -1,6 +1,6 @@
 Package: com.thelone3agle.altair
 Name: Altair
-Version: 1.1
+Version: 1.1.1
 Architecture: iphoneos-arm
 Description: Windows 10 like music player widget for XenHTML (Developed by @thelone3agle)
 Maintainer: KlutchKyle <kylethelegendmc@gmail.com

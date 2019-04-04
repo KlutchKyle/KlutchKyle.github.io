@@ -23,7 +23,7 @@ body{
   margin-right: auto;
   width: 100%;
   height: 100px;
-  background-color: rgba(0,0,0,0.75);
+  background-color: rgba(0,0,0,0.55);
   -webkit-backdrop-filter:blur(0px);
   border-radius: 0px;
 }
@@ -45,10 +45,10 @@ body{
   text-align: left;
   top: 8px;
   left: 115px;
-  width: 61%;
+  width: 66%;
   height: 30px;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 23px;
   white-space: nowrap;
   overflow: scroll;
  font-family: '-apple-system-font';
@@ -60,10 +60,10 @@ body{
   text-align: left;
   top: 35px;
   left: 115px;
-  width: 61%;
+  width: 66%;
   height: 25px;
   font-weight: 100;
-  font-size: 15px;
+  font-size: 18px;
   white-space: nowrap;
   overflow: scroll;
   font-family: '-apple-system-font';
@@ -73,24 +73,24 @@ body{
   position: absolute;
   top: 62px;
   left: 59%;
-  width: 28px;
-  height: 27px;
+  width: 31px;
+  height: 31px;
 }
 
 #next{
   position: absolute;
   top: 62px;
   left: 79%;
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
 }
 
 #prev{
   position: absolute;
   top: 62px;
   left: 39%;
-  width: 25px;
-  height: 25px;
+  width: 28px;
+  height: 28px;
 }
 
 @font-face{

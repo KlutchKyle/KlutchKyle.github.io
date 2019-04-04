@@ -42,26 +42,27 @@ bgDiv.style.height = "100px";
 artworkDiv.style.height = "100px";
 artworkDiv.style.width = "100px";
 
-prevDiv.style.left = "42.5%";
-prevDiv.style.top = "64px";
-playDiv.style.left = "59.5%";
-playDiv.style.top = "63px";
-nextDiv.style.left = "76.5%";
-nextDiv.style.top = "64px";
+prevDiv.style.left = "44.5%";
+prevDiv.style.top = "62px";
+playDiv.style.left = "61.5%";
+playDiv.style.top = "61px";
+nextDiv.style.left = "78.5%";
+nextDiv.style.top = "62px";
 
 titleDiv.style.fontFamily = "win";
-titleDiv.style.left = "130px";
-titleDiv.style.top = "6px";
+titleDiv.style.left = "150px";
+titleDiv.style.top = "8px";
 
 artistDiv.style.fontFamily = "win";
-artistDiv.style.left = "130px";
-artistDiv.style.top = "33px";
+artistDiv.style.left = "150px";
+artistDiv.style.top = "38px";
+
 
 function mainUpdate(type) {
     var albumart = document.querySelector('#artwork');
     if(type == "music") {
 
-       if (artist === "(null)" || artist === "null") {
+        if (artist === "(null)" || artist === "null") {
 					
 					artistDiv.style.display = "none";
                                 titleDiv.style.display = "none";
