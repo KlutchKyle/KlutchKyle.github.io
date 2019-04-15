@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
@@ -53,4 +54,61 @@
 
 	#main {
 		display: inline-block;
+=======
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+
+/*
+	Identity by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/* Basic */
+
+	body {
+		background-image:		url('../../images/bg.jpg');
+		background-repeat:		no-repeat;
+		background-size:		cover;
+		background-position:	bottom center;
+		background-attachment:	fixed;
+
+		&:after {
+			display: none;
+		}
+	}
+
+/* List */
+
+	ul {
+		&.icons {
+			li {
+				a {
+					&:before {
+						color: _palette(border);
+					}
+
+					&:hover {
+						&:before {
+							color: _palette(highlight);
+						}
+					}
+				}
+			}
+		}
+	}
+
+/* Wrapper */
+
+	#wrapper {
+		text-align: center;
+	}
+
+/* Main */
+
+	#main {
+		display: inline-block;
+>>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 	}

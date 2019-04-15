@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import 'libs/vars';
 @import 'libs/functions';
 @import 'libs/mixins';
@@ -48,4 +49,56 @@
 				border-left: solid 1px #fff;
 			}
 		}
+=======
+@import 'libs/vars';
+@import 'libs/functions';
+@import 'libs/mixins';
+@import 'libs/skel';
+
+/*
+	Identity by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/* List */
+
+	ul {
+		&.icons {
+			li {
+				a {
+					-ms-behavior: url('assets/js/PIE.htc');
+
+					&:before {
+						text-align: center;
+						font-size: 26px;
+					}
+				}
+			}
+		}
+	}
+
+/* Main */
+
+	#main {
+		-ms-behavior: url('assets/js/PIE.htc');
+
+		.avatar {
+			img {
+				-ms-behavior: url('assets/js/PIE.htc');
+			}
+		}
+	}
+
+/* Footer */
+
+	#footer {
+		color: #fff;
+
+		.copyright {
+			li {
+				border-left: solid 1px #fff;
+			}
+		}
+>>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 	}

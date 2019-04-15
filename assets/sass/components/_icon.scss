@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @import '../libs/vars';
 @import '../libs/functions';
 @import '../libs/mixins';
@@ -18,4 +19,26 @@
 		> .label {
 			display: none;
 		}
+=======
+@import '../libs/vars';
+@import '../libs/functions';
+@import '../libs/mixins';
+
+///
+/// Identity by HTML5 UP
+/// html5up.net | @n33co
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+///
+
+/* Icon */
+
+	.icon {
+		@include icon;
+		position: relative;
+		border-bottom: none;
+
+		> .label {
+			display: none;
+		}
+>>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 	}
