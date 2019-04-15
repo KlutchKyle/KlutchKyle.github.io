@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 @import url(font-awesome.min.css);
 @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300");
 
@@ -18,7 +18,29 @@
 		font: inherit;
 		vertical-align: baseline;
 	}
-
+	/* change the background color */
+	.navbar-custom {
+		background: #000000;
+		-webkit-backdrop-filter: opacity() blur(5px);
+		top: 0;
+	}
+	/* change the brand and text color */
+	.navbar-custom .navbar-brand,
+	.navbar-custom .navbar-text {
+		color: rgba(255, 255, 255, 0.938);
+	}
+	/* change the link color */
+	.navbar-custom .nav .nav-link {
+		color: rgb(255, 255, 255);
+		transition: 0.3s;
+	}
+	/* change the color of active or hovered links */
+	.nav .nav-item .nav-link.active,
+	.nav .nav-item:hover .nav-link {
+		background-color: #ff6600;
+		-webkit-backdrop-filter: opacity(0.5) blur(5px);
+		color: rgb(0, 0, 0);
+	}
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
 	}
@@ -85,12 +107,12 @@
 	body {
 		height: 100%;
 		background-color: #ffffff;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-repeat: repeat,			no-repeat,			no-repeat;
-		background-size: 100px 100px, cover,				cover;
+		background-image: url("images/overlay.jpg"), -moz-linear-gradient(60deg, rgba(220, 85, 1, 0.692) 5%, rgba(255, 255, 255, 0.911)), url("../../images/bg.jpg");
+		background-image: url("images/overlay.jpg"), -webkit-linear-gradient(60deg, rgba(220, 85, 1, 0.692) 5%, rgba(255, 218, 96, 0.35)), url("../../images/bg.jpg");
+		background-image: url("images/overlay.jpg"), -ms-linear-gradient(60deg, rgba(220, 85, 1, 0.692) 5%, rgba(255, 218, 96, 0.35)), url("../../images/bg.jpg");
+		background-image: url("images/overlay.jpg"), linear-gradient(60deg, rgba(220, 85, 1, 0.692) 5%, rgba(255, 218, 96, 0.863)), url("../../images/bg.jpg");
+		background-repeat: no-repeat,			no-repeat,			no-repeat;
+		background-size: cover, cover,				cover;
 		background-position: top left,		center center,		bottom center;
 		background-attachment: fixed,			fixed,				fixed;
 	}
@@ -104,14 +126,14 @@
 			width: 100%;
 			height: inherit;
 			opacity: 0;
-			z-index: 1;
+			z-index: -1;
 			background-color: #ffffff;
-			background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-			background-image: url("images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-			background-image: url("images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-			background-image: url("images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35));
-			background-repeat: repeat,			no-repeat;
-			background-size: 100px 100px, cover;
+			background-image: url("images/overlay.jpg"), -moz-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
+			background-image: url("images/overlay.jpg"), -webkit-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
+			background-image: url("images/overlay.jpg"), -ms-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
+			background-image: url("images/overlay.jpg"), linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
+			background-repeat: no-repeat,			no-repeat;
+			background-size: cover, cover;
 			background-position: top left,		center center;
 			-moz-transition: opacity 1.75s ease-out;
 			-webkit-transition: opacity 1.75s ease-out;
@@ -126,7 +148,6 @@
 /* Type */
 
 	body, input, select, textarea {
-		color: #414f57;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 14pt;
 		font-weight: 300;
@@ -169,7 +190,7 @@
 		}
 
 		a:hover {
-			color: #ff7496;
+			color: black;
 		}
 
 	strong, b {
@@ -303,7 +324,7 @@
 		input[type="tel"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #ff7496;
+			border-color: black;
 		}
 
 	.select-wrapper {
@@ -404,13 +425,13 @@
 
 		input[type="checkbox"]:checked + label:before,
 		input[type="radio"]:checked + label:before {
-			color: #ff7496;
+			color: black;
 			content: '\f00c';
 		}
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #ff7496;
+			border-color: black;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -546,7 +567,7 @@
 					}
 
 					ul.icons li a:hover:before {
-						text-shadow: 1.25px 0px 0px #ff7496, -1.25px 0px 0px #ff7496, 0px 1.25px 0px #ff7496, 0px -1.25px 0px #ff7496;
+						text-shadow: 1.25px 0px 0px black, -1.25px 0px 0px black, 0px 1.25px 0px black, 0px -1.25px 0px black;
 					}
 
 					ul.icons li a:before {
@@ -562,7 +583,7 @@
 					}
 
 					ul.icons li a:hover {
-						border-color: #ff7496;
+						border-color: black;
 					}
 
 			@media screen and (max-width: 480px) {
@@ -636,8 +657,8 @@
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
-			border-color: #ff7496;
-			color: #ff7496 !important;
+			border-color: black;
+			color: black !important;
 		}
 
 		input[type="submit"].icon,
@@ -701,11 +722,13 @@
 /* Main */
 
 	#main {
+		-webkit-backdrop-filter: opacity() blur(5px);
 		position: relative;
 		max-width: 100%;
 		min-width: 27em;
 		padding: 4.5em 3em 3em 3em ;
-		background: #ffffff;
+		background: #ffffff18;
+		box-shadow: 0 0 100px 50px rgba(0, 0, 0, 0.144);
 		border-radius: 4px;
 		cursor: default;
 		opacity: 0.95;
@@ -722,6 +745,7 @@
 		-webkit-transition: opacity 1s ease, -webkit-transform 1s ease;
 		-ms-transition: opacity 1s ease, -ms-transform 1s ease;
 		transition: opacity 1s ease, transform 1s ease;
+		
 	}
 
 		#main .avatar {
@@ -734,7 +758,7 @@
 				display: block;
 				margin: 0 auto;
 				border-radius: 100%;
-				box-shadow: 0 0 0 1.5em #ffffff;
+				box-shadow: 0 0 50px 1.5em #dc56026e;
 			}
 
 			#main .avatar:before {
@@ -746,12 +770,13 @@
 				width: calc(100% + 6em);
 				height: 1px;
 				z-index: -1;
-				background: #c8cccf;
+				background: #ffffff;
 			}
 
 		@media screen and (max-width: 480px) {
 
 			#main {
+				
 				min-width: 0;
 				width: 100%;
 				padding: 4em 2em 2.5em 2em ;
