@@ -1,0 +1,122 @@
+#body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-size: auto;
+    -webkit-animation: fadein 0.2s linear 1 normal;
+    -webkit-animation-fill-mode: forwards;
+    
+}
+
+#content-wrapper {
+    width: 100%;
+    height: 100%;
+    zoom: 1;
+}
+
+#clock {
+    position: fixed;
+    color: white;
+    font-family: "Segoe UI Light";
+    font-size: 200px;
+    font-weight: 400;
+    bottom: 0;
+    padding-bottom: 245px;
+    padding-left: 5%;
+}
+
+#date {
+    position: fixed;
+    color: white;
+    font-family: "Segoe UI Light";
+    font-size: 72px;
+    font-weight: 100;
+    bottom: 0;
+    padding-bottom: 175px;
+    padding-left: 5%;
+}
+
+#demo {
+    Color: white;
+}
+
+#bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: #FFF;
+    background-size: cover !important;
+}
+
+
+
+#controls {
+    position: fixed;
+    float: right;
+    Width: 100%;
+    height: auto;
+    right: 0;
+    padding-right: 1px;
+    bottom: 30%;
+
+}
+
+
+#content-container {
+    position: relative;
+    padding-left: 125px;
+    min-height:100%;
+    bottom: 0;
+    padding-bottom: 0;
+
+}
+
+#batteryImg {
+    position: fixed;
+    height: auto;
+    bottom: 0px;
+    right: 50px;
+    filter: invert(0%);
+
+}
+
+#bPercent {
+    position: fixed;
+    float: right;
+    font-size: 40px;
+    color: white;
+    font-family: "Segoe UI Light";
+    bottom: -5px;
+    right: 60px;
+}
+
+#wMtr {
+    position: fixed;
+    float: right;
+    width: 100%;
+    height: auto;
+    right: 200px;
+    bottom: 85.5;
+}
+#sMtr {
+    position: fixed;
+    float: right;
+    width: 100%;
+    right: 325px;
+    bottom: 85.5px;
+}
+
+@font-face {
+    font-family: "Segoe UI Light";
+    font-weight: 200;
+    src: url("fonts/segoeuil.ttf");
+}
+
+@-webkit-keyframes fadein {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}

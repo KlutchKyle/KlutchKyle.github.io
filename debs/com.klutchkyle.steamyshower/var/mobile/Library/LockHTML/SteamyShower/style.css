@@ -1,0 +1,35 @@
+#body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+
+    -webkit-animation: fadein 0.2s linear 1 normal;
+    -webkit-animation-fill-mode: forwards;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#blur {
+    content: "";
+    min-height: 100%;
+    width: 100%;
+    -webkit-backdrop-filter: blur(10px) contrast(0.9);
+}
+
+#colorLayer {
+    top: 0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: absolute;
+    z-index: -1;
+}
+
+@-webkit-keyframes fadein {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}

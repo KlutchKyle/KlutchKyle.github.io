@@ -1,0 +1,8 @@
+Origin: KlutchKyles's Repo
+Label: KlutchKyle's Official Repo
+Suite: stable
+Version: 1.0
+Codename: iOS
+Architectures: iphoneos-arm
+Components: main
+Description: Mostly Widgets, maybe some themes :)

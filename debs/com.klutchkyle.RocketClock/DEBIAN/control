@@ -1,0 +1,10 @@
+Package: com.klutchkyle.rocketclock
+Name: Rocket Clock
+Version: 0.5 
+Architecture: iphoneos-arm
+Description: Rocket League like clock for XenHTML
+Maintainer: KlutchKyle <kylethelegendmc@gmail.com
+Depends: firmware (>= 10.0), com.matchstic.xenhtml, com.junesiphone.xeninfo (>= 2.0)
+Author: KlutchKyle <kylethelegendmc@gmail.com>
+Section: Widgets
+Tag: purpose::widgets	
