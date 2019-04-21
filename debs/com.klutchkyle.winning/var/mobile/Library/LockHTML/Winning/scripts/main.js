@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 function mainUpdate(type){
     if(type == "battery"){ // Get Battery Information
         var chargeText = (batteryCharging) ? "Charging" : "Not Charging";
@@ -35,7 +35,7 @@ function mainUpdate(type){
     
     } 
 }
-=======
+
 function mainUpdate(type){
     if(type == "battery"){ // Get Battery Information
         var chargeText = (batteryCharging) ? "Charging" : "Not Charging";
