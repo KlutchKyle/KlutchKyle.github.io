@@ -72,4 +72,4 @@ function mainUpdate(type){
     
     } 
 }
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
+
