@@ -112,7 +112,7 @@
 @font-face {
     font-family: "Segoe UI Light";
     font-weight: 200;
-    src: url("fonts/segoeuil.ttf");
+    src: url("/System/Library/Fonts/segoeuil.ttf");
 }
 
 @-webkit-keyframes fadein {
