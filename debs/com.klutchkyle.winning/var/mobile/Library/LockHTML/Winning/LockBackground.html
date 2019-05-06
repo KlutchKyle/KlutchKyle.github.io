@@ -11,11 +11,11 @@
     <script type="text/javascript" charset="utf-8" src="scripts/jquery.min.js"></script>
 </head>
 
-<body id="body" onload="startTime(), startDate(), init()">
+<body id="body" onload="startTime(), startDate(), init()", bgcolor="black">
   
     <div id="content-wrapper">
         <div id="content-container" style="float:right; margin:0; width:100%">
-            <div id="clock"><a id="h"></a id="clk">:<a id="m"></a></div>
+            <div id="clock"><a id="h"></a id="clk"><span id="colon">:</span><a id="m"></a></div>
             <div id="date"></div>
             <img id="sMtr" src="imgs/sbar3.png" style="width: 65px">
             <img id="wMtr" src="imgs/wifiBars2.png" style="width: 65px">

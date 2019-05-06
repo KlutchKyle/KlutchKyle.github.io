@@ -109,6 +109,10 @@
     bottom: 85.5px;
 }
 
+#colon {
+    vertical-align: 0.1em;
+}
+
 @font-face {
     font-family: "Segoe UI Light";
     font-weight: 200;
