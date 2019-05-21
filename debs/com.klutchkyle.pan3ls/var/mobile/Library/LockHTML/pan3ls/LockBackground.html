@@ -1,0 +1,86 @@
+<html>
+<meta content="user-scalable=no" />
+<meta charset=UTF-8>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0, user-scalable=no">
+
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="animate.css" type="text/css">
+    <script type="text/javascript" charset="utf-8" src="scripts/time.js"></script>
+    <script type="text/javascript" charset="utf-8" src="options.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/vibrant.js"></script>
+</head>
+
+<body id="body" onload="startTime(), startDate(), checkTime();" bgcolor="red">
+
+    <div id="content-wrapper">
+        <div class="wrapper" id='wrapper'>
+            <aside class="aside aside-1" id="clockSide">
+                <div id="clock"><a id="h">hh</a>:<a id="m">mm</a></div>
+                <div id="date">dayofweek, ## MTH</div>
+            </aside>
+            <aside class="aside aside-2">
+                <div id="wCond">Partly Cloudy</div>
+                <img id="wIcon" src="imgs/34.png" style="width: 150px; height:150px">
+                <div id="wTemp">
+                    &nbsp;
+                    null&deg;F
+                </div>
+                
+            </aside>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        //scale resolution
+        var siteWidth = 1100;
+        var scale = screen.width / siteWidth;
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + siteWidth + ', initial-scale=' + scale + '');
+        document.getElementById("body").style = "-webkit-animation: fadein 0.2s linear 1 normal; -webkit-animation-fill-mode: forwards";
+
+        function mainUpdate(type) {
+            if (type == 'weather') {
+                document.getElementById('wCond').innerHTML = weather.condition;
+                document.getElementById('wTemp').innerHTML = weather.temperature + "\u00b0" + "F";
+                document.getElementById("wIcon").src = ('imgs/' + weather.conditionCode + '.png');
+
+            }
+        }
+
+        var colorMatch = function () {
+            let v = new Vibrant('imgs/screenshot.png')
+            wallPalette = palette => wallColor = palette;
+            v.getPalette().then(function getColor(palette) {
+                var wallColorRGB = this.wallPalette(palette.LightVibrant.getRgb());
+                var r = parseInt(wallColorRGB[0]);
+                var g = parseInt(wallColorRGB[1]);
+                var b = parseInt(wallColorRGB[2]);
+                console.log(wallColorRGB);
+                console.log(r);
+                console.log(g);
+                console.log(b);
+                var colorRGB = r + ', ' + g + ', ' + b;
+                console.log(colorRGB + " running");
+                document.getElementById('clock').style.color = "rgb(" + colorRGB + ")";
+                document.getElementById('date').style.color = "rgb(" + colorRGB + ")";
+                document.getElementById('wTemp').style.color = "rgb(" + colorRGB + ")";
+                document.getElementById('wCond').style.color = "rgb(" + colorRGB + ")";
+                document.getElementById('clockSide').style.borderColor = "rgb(" + colorRGB + ")";
+            });
+        }
+
+        if (matchColor == true) {
+            colorMatch();
+        }
+
+        // Limit Interaction
+        document.addEventListener('gesturestart', function (e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+
+</html>

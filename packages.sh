@@ -1,3 +1,1 @@
-dpkg-deb -b debs/com.klutchkyle.winning
-dpkg-deb -b debs/com.klutchkyle.repoicons
-dpkg-deb -b debs/com.klutchkyle.steamyshower
+dpkg-deb -b debs/com.klutchkyle.pan3ls
