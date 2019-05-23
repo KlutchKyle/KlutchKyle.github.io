@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<title></title>
+
+<head>
+    <title>Helloit</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" charset="utf-8" src="options.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/time.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/vibrant.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/color.js"></script>
+</head>
+
+<body id="body" onload="init()">
+
+    <div id="hello">
+        <a class="h">H</a><a>ELLO</a>
+    </div>
+
+    <div id="bold">
+        <div id="glaive">
+            <a id="weekday"></a>,&nbsp<a id="date"></a>&nbsp<a id="month"></a><br>
+
+            <a id="hour"></a>:<a id="minute"></a><a id="ampm"></a><br>
+            <br>
+        </div>
+        <div id="weather">
+            Currently it's <a id="temp"> ??&deg;</a>outside<br>
+            <a id="city">your city</a>
+        </div>
+
+        <div>
+            <a id="batterylevel">_%</a>&nbsp<a id="status">charging?</a>
+            <img src="img/bolt.png" id="bolt"></img>
+        </div>
+    </div>
+    <script>
+        if (matchColor == true) {
+            colorMatch();
+        }
+    </script>
+</body>
+
+</html>

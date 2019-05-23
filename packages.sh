@@ -1,1 +1,1 @@
-dpkg-deb -b debs/com.klutchkyle.pan3ls
+dpkg-deb -b debs/com.bestware.helloit

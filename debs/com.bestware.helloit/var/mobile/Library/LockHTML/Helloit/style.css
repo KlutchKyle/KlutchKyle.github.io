@@ -1,0 +1,44 @@
+
+body{
+    letter-spacing: 0.8px;
+    color: #000;
+    font-size: 15px;
+}
+
+#hello{
+    font-size: 40px;
+    font-family: "Phenomena-Bold";
+}
+#bold{
+    font-family: "Phenomena-Black";
+}
+
+#clock{
+    text-align: left;
+}
+
+#glaive{
+    font-size: 20px;
+}
+
+.h{
+    color: #00ff00;
+}
+
+
+#bolt{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    
+}
+
+@font-face{
+    font-family: "Phenomena-Black";
+    src: url('fonts/Phenomena-Black.ttf');
+}
+
+@font-face{
+    font-family: "Phenomena-Bold";
+    src: url('fonts/Phenomena-Bold.ttf');
+}
