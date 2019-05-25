@@ -51,7 +51,7 @@
         }
 
         var colorMatch = function () {
-            let v = new Vibrant('var/mobile/Library/SpringBoard/LockBackgroundThumbnail.jpg')
+            let v = new Vibrant('/var/mobile/Library/SpringBoard/LockBackgroundThumbnail.jpg')
             wallPalette = palette => wallColor = palette;
             v.getPalette().then(function getColor(palette) {
                 var wallColorRGB = this.wallPalette(palette.LightVibrant.getRgb());

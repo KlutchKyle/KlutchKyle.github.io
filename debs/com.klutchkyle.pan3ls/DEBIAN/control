@@ -1,6 +1,6 @@
 Package: com.klutchkyle.pan3ls
 Name: Pan3ls
-Version: 0.0.2
+Version: 0.0.3
 Architecture: iphoneos-arm
 Description: Panel lock screen widget for xenHTML
 Maintainer: KlutchKyle <kylethelegendmc@gmail.com

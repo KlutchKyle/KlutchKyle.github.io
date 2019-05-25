@@ -16,13 +16,17 @@
 <body id="body" onload="init()">
 
     <div id="hello">
-        <a class="h">H</a><a>ELLO</a>
+        <a  id="colored">H</a><a id="uncolored">ELLO</a>
+        <script>
+            document.getElementById('colored').style.color = colour;
+            document.getElementById('colored').innerHTML = colored;
+            document.getElementById('uncolored').innerHTML = uncolored;
+        </script>
     </div>
 
     <div id="bold">
         <div id="glaive">
             <a id="weekday"></a>,&nbsp<a id="date"></a>&nbsp<a id="month"></a><br>
-
             <a id="hour"></a>:<a id="minute"></a><a id="ampm"></a><br>
             <br>
         </div>
