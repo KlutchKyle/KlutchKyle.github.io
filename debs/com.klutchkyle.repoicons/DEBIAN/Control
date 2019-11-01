@@ -1,9 +1,0 @@
-Package: com.klutchkyle.repoicons
-Name: KlutchKyle Repo Icons
-Version: 1.0
-Architecture: iphoneos-arm
-Description: Icons for KlutchKyle's Repo
-Maintainer: KlutchKyle <kylethelegendmc@gmail.com
-Author: KlutchKyle <kylethelegendmc@gmail.com>
-Section: Widgets
-Tag: purpose::widgets
