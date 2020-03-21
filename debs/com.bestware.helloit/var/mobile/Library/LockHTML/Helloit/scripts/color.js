@@ -69,7 +69,7 @@ if (domatch == "LightVibrant") {
         });
     }
 } else {
-    var domatch = function () {
+    var colorMatch = function () {
         let v = new Vibrant('/var/mobile/Library/SpringBoard/LockBackgroundThumbnail.jpg')
         wallPalette = palette => wallColor = palette;
         v.getPalette().then(function getColor(palette) {

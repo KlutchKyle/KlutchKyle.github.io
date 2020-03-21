@@ -1,10 +1,10 @@
 Package: com.bestware.helloit
 Name: Helloit
-Version: 0.0.2
+Version: 0.0.3
 Architecture: iphoneos-arm
 Description: Just a widget. Pretty useful isn't it? Depends on XenHTML and XenInfo.
-Maintainer: Bestware <kylethelegendmc@gmail.com
-Depends: firmware (>= 10.0), com.matchstic.xenhtml
+Maintainer: Bestware <kylethelegendmc@gmail.com>
+Depends: firmware (>= 10.0), com.matchstic.xenhtml, com.junesiphone.xeninfo
 Author: Bestware <kylethelegendmc@gmail.com>
 Section: Widgets
 Tag: purpose::widgets
