@@ -1,0 +1,42 @@
+<html>
+<meta content="user-scalable=no" />
+<meta charset=UTF-8>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1.0, user-scalable=no">
+
+<head>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="animate.css" type="text/css">
+    <script type="text/javascript" charset="utf-8" src="scripts/time.js"></script>
+    <script type="text/javascript" charset="utf-8" src="options.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
+    <!--<script type="text/javascript" charset="utf-8" src="scripts/vibrant.js"></script>-->
+</head>
+
+<body id="body" onload="startTime(), checkTime()" bgcolor="black">
+
+    <div id="content-wrapper">
+        <div class="container" id="container" style="width: 100%;">
+            <center><div id="containerBG"><div id="behind"></div></div></center>
+            <center><img id="pullDown" src="imgs/pulldownarrow.png"></img></center>
+            <div id="clock"><a id="h">hh</a>:<a id="m">mm</a></div>
+
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+var cColor = 0;
+var nUp;
+var nDown;
+var clockVisible = true;
+startInterval();
+function startInterval() {
+    cColor = 0;
+    nUp = setInterval(addF , 100)
+}
+document.getElementById('clock').addEventListener("click", flipSides);
+document.getElementById('pullDown').addEventListener("click", flipSides);
+</script>
+
+</html>

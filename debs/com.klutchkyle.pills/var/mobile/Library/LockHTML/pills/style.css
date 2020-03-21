@@ -1,0 +1,198 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
+
+#body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-size: cover;
+  -webkit-animation: fadein 0.2s linear 1 normal;
+  -webkit-animation-fill-mode: forwards;
+  background-image: url(imgs/testBackground.png);
+  background-repeat: no-repeat;
+    
+}
+
+.container {
+  top: 20%;  
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+
+}
+
+#containerBG {
+  position: relative;
+  background-color: rgba(255,255,255,0.1);
+  height: 25%;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 15px;
+  -webkit-backdrop-filter: blur(15px);
+}
+
+#behind {
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  z-index: -3;
+  opacity: 0.50;
+
+}
+
+#clockBg {
+  width: 100%;
+  max-width: 85%;
+  height: auto;
+  margin-bottom: -1px;
+}
+
+#pullDown {
+  top: 15%;
+  height: 25%;
+  width: auto;
+
+  position: absolute;
+  transform: translate(-50%, -50%);
+  visibility: hidden;
+}
+
+#clock {
+  top: 50%;
+  position: absolute;
+  /*color: hsl(198.1,62.3%,72.9%);*/
+  color: white;
+  font-family: "SFPro";
+  font-size: 65;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#content-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    zoom: 1;
+}
+
+#r {
+  color: white;
+}
+
+#g {
+  color: white;
+}
+
+#b {
+  color: white;
+}
+
+@font-face {
+    font-family: "Segoe UI Light";
+    font-weight: 200;
+    src: url("fonts/segoeuil.ttf");
+}
+
+@font-face {
+    font-family: "SFPro";
+    font-weight: 200;
+    src: url("fonts/SFProDisplay-Regular.ttf");
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fBBc9.ttf) format('truetype');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+  }
+
+@-webkit-keyframes fadein {
+    0% {opacity: 0;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+/* <--------------- CUSTOM ANIMATION ---------------> */
+
+@keyframes cbounceOutUp {
+  20% {
+    -webkit-transform: translate3d(0, -10%, 0);
+    transform: translate3d(0, -10%, 0) translate(-50%, -50%);
+  }
+
+  40%,
+  45% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 20%, 0);
+    transform: translate3d(0, 20%, 0) translate(-50%, -50%);
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -200%, 0) translate(-50%, -50%);
+  }
+}
+
+.cbounceOutUp {
+  -webkit-animation-name: cbounceOutUp;
+  animation-name: cbounceOutUp;
+}
+
+@media (print), (prefers-reduced-motion) {
+  .canimated {
+    -webkit-animation: unset !important;
+    animation: unset !important;
+    -webkit-transition: none !important;
+    transition: none !important;
+  }
+}
+
+@keyframes cbounceInDown {
+  from,
+  60%,
+  75%,
+  90%,
+  to {
+    -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -3000px, 0);
+    transform: translate3d(0, -3000px, 0) translate(-50%, -50%);
+  }
+
+  60% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 25px, 0);
+    transform: translate3d(0, 25px, 0) translate(-50%, -50%);
+  }
+
+  75% {
+    -webkit-transform: translate3d(0, -10px, 0);
+    transform: translate3d(0, -10px, 0) translate(-50%, -50%);
+  }
+
+  90% {
+    -webkit-transform: translate3d(0, 5px, 0);
+    transform: translate3d(0, 5px, 0) translate(-50%, -50%);
+  }
+
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) translate(-50%, -50%);
+  }
+}
+
+.cbounceInDown {
+  -webkit-animation-name: cbounceInDown;
+  animation-name: cbounceInDown;
+}

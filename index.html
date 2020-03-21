@@ -12,27 +12,29 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <script src="assets/js/bootstrap.js"></script>
 </head>
-<nav class="navbar navbar-expand-sm justify-content-center navbar-custom">
 
+<nav class="navbar navbar-expand-sm navbar-custom" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" aria-expanded="false" data-target=".navbar-collapse" style="float: rigth">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">KlutchKyle's Repo</a>
+          </div>
     <!-- Links -->
-
-    <ul class="nav nav-pills">
-        <a class="navbar-brand" href="#">KlutchKyle's Repo</a>
-        <li class="nav-item">
-            <a class="nav-link active" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Winning</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Altair</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#">More</a>
-        </li>
-    </ul>
-
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="nav nav-pills head-menu">
+                <input type="hidden" id="selected_menu_item" value="=$selectedMenuId; ?>" />
+                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Winning</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Altair</a></li>
+                <li class="nav-item"><a class="nav-link disabled" href="#">More</a></li>
+            </ul>
+        </div>
+    </div>
 </nav>
 <body class="is-loading">
 
@@ -74,4 +76,18 @@
     </script>
 
 </body>
+
+<script type="text/javascript">
+/*
+$('.navbar-collapse').on('show.bs.collapse', function() {
+    $('.nav-pills').addClass('nav-stacked');
+});
+$('.navbar-collapse').on('hide.bs.collapse', function() {
+    $('.nav-pills').removeClass('nav-stacked');
+});
+$('.navbar-toggle').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+});*/
+</script>
+
 </html>
