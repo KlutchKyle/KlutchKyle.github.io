@@ -1,5 +1,5 @@
 ﻿@charset "UTF-8";
-@import url(font-awesome.min.css);
+@import url(/assets/css/font-awesome.min.css);
 @import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:300");
 
 /*
@@ -123,10 +123,10 @@
 	body {
 		height: 100%;
 		background-color: #ffffff;
-		background-image: url("images/overlay.jpg"), -moz-linear-gradient(60deg, rgba(220, 85, 1, 0.692) 5%, rgba(255, 255, 255, 0.911)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.jpg"), -webkit-linear-gradient(60deg, rgba(220, 85, 1, 0.692) 5%, rgba(255, 218, 96, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.jpg"), -ms-linear-gradient(60deg, rgba(220, 85, 1, 0.692) 5%, rgba(255, 218, 96, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.jpg"), linear-gradient(60deg, rgba(220, 85, 1, 0.692) 5%, rgba(255, 218, 96, 0.863)), url("../../images/bg.jpg");
+		background-image: -moz-linear-gradient(60deg, rgba(220, 85, 1, 0.692) 5%, rgba(255, 255, 255, 0.911));
+		background-image: -webkit-linear-gradient(60deg, rgba(220, 85, 1, 0.692) 5%, rgba(255, 218, 96, 0.35));
+		background-image: -ms-linear-gradient(60deg, rgba(220, 85, 1, 0.692) 5%, rgba(255, 218, 96, 0.35));
+		background-image: linear-gradient(60deg, rgba(220, 85, 1, 0.692) 5%, rgba(255, 218, 96, 0.863));
 		background-repeat: no-repeat,			no-repeat,			no-repeat;
 		background-size: cover, cover,				cover;
 		background-position: top left,		center center,		bottom center;
@@ -144,10 +144,10 @@
 			opacity: 0;
 			z-index: -1;
 			background-color: #ffffff;
-			background-image: url("images/overlay.jpg"), -moz-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
-			background-image: url("images/overlay.jpg"), -webkit-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
-			background-image: url("images/overlay.jpg"), -ms-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
-			background-image: url("images/overlay.jpg"), linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
+			background-image: -moz-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
+			background-image: -webkit-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
+			background-image: -ms-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
+			background-image: linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
 			background-repeat: no-repeat,			no-repeat;
 			background-size: cover, cover;
 			background-position: top left,		center center;
