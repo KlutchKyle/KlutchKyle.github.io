@@ -37,7 +37,7 @@
 	/* change the color of active or hovered links */
 	.nav .nav-item .nav-link.active,
 	.nav .nav-item:hover .nav-link {
-		background-color: #9581ED;
+		background-color: #6a84ff;
 		-webkit-backdrop-filter: blur(5px);
 		color: rgb(255, 255, 255);
 	}
@@ -123,10 +123,10 @@
 	body {
 		height: 100%;
 		background-color: #9581ED;
-		background-image: -moz-linear-gradient(60deg, #4CC1FA 5%, #9581ED);
-		background-image: -webkit-linear-gradient(60deg, #4CC1FA 5%, #9581ED);
-		background-image: -ms-linear-gradient(60deg, #4CC1FA 5%, #9581ED);
-		background-image: linear-gradient(60deg, #4CC1FA 5%, #9581ED);
+		background-image: -moz-linear-gradient(60deg, #6affc6 5%, #6a84ff);
+		background-image: -webkit-linear-gradient(60deg, #6affc6 5%, #6a84ff);
+		background-image: -ms-linear-gradient(60deg, #6affc6 5%, #6a84ff);
+		background-image: linear-gradient(60deg, #6affc6 5%, #6a84ff);
 		background-repeat: no-repeat,			no-repeat,			no-repeat;
 		background-size: cover, cover,				cover;
 		background-position: top left,		center center,		bottom center;
@@ -144,10 +144,10 @@
 			opacity: 0;
 			z-index: -1;
 			background-color: #9581ED;
-			background-image: -moz-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
-			background-image: -webkit-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
-			background-image: -ms-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
-			background-image: linear-gradient(60deg, rgb(176, 163, 233) 5%, rgb(138, 215, 253));
+			background-image: -moz-linear-gradient(60deg, #6a84ff 5%, #6affc6);
+			background-image: -webkit-linear-gradient(60deg, #6a84ff 5%, #6affc6);
+			background-image: -ms-linear-gradient(60deg, #6a84ff 5%, #6affc6);
+			background-image: linear-gradient(60deg, #6a84ff 5%, #6affc6);
 			background-repeat: no-repeat,			no-repeat;
 			background-size: cover, cover;
 			background-position: top left,		center center;
@@ -775,7 +775,7 @@
 				display: block;
 				margin: 0 auto;
 				border-radius: 100%;
-				box-shadow: 0 0 50px 1.5em #9581ED;
+				box-shadow: 0 0 50px 1.5em #6a84ff;
 			}
 
 			#main .avatar:before {
