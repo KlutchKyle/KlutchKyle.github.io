@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Hello.it XenHTML Widget</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
+    <script src="/assets/js/bootstrap.js"></script>
+</head>
+
+<nav class="navbar navbar-custom" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle " data-toggle="collapse" aria-expanded="false" data-target=".navbar-collapse" style="float: rigth">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/index.html">KlutchKyle's Repo</a>
+          </div>
+    <!-- Links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="nav nav-pills head-menu">
+                <input type="hidden" id="selected_menu_item" value="=$selectedMenuId; ?>" />
+                <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/winning/winning.html">Winning</a></li>
+                <li class="nav-item"><a class="nav-link active" href="/helloit/helloit.html">hello.it</a></li>
+                <li class="nav-item"><a class="nav-link" href="/steamyshower/steamyshower.html">SteamyShower</a></li>
+                <li class="nav-item"><a class="nav-link" href="/rocketclock/rocketclock.html">RocketClock</a></li>
+                <li class="nav-item"><a class="nav-link" href="/pan3ls/pan3ls.html">Pan3ls</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<body class="is-loading">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <section id="main">
+            <header>
+                <span class="avatar"><img src="assets/images/helloiticon.png" alt=""/></span>
+                <h1>Hello.it</h1>
+                <p>By BestWare</p>
+                <p>Color responsive lockscreen xenHTML Widget!</p>
+                &nbsp
+            </header>
+            <header>
+                <h2>Screenshots</h2>
+                <p>Looks great on ipad, iphone, and even iphone x devcies</p>
+                <div id="screenshotcarousel" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                      <li data-target="#screenshotcarousel" data-slide-to="0" class="active"></li>
+                      <!--<li data-target="#screenshotcarousel" data-slide-to="1"></li>
+                      <li data-target="#screenshotcarousel" data-slide-to="2"></li>-->
+                    </ol>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src="assets/screenshots/helloits1.JPG" alt="First slide">
+                      </div>
+                      <!--<div class="carousel-item">
+                        <img class="d-block w-100" src="assets/screenshots/winnings2.PNG" alt="Second slide">
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block w-100" src="assets/screenshots/winnings3.PNG" alt="Third slide">
+                      </div>
+                    </div>-->
+                    <a class="carousel-control-prev" href="#screenshotcarousel" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#screenshotcarousel" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+            </header>
+            &nbsp
+            <header>
+              <h3>Changelog:</h3>
+              <p>Bruh... I haven't made changes in over a year lol</p>
+            </header>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer" style="color: black;">
+            <a href="https://twitter.com/_klutchkyle_"><i class="fa fa-twitter"></i>Follow KlutchKyle on twitter</a>
+            <br>
+            <a href="https://twitter.com/kshitizwagle"><i class="fa fa-twitter"></i>Follow Bestware on twitter</a>
+            <ul class="copyright">
+                <li>&copy; 2020 KlutchKyle</li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <!--[if lte IE 8]><script src="assets/js/respond.min.js"></script><![endif]-->
+    <script>
+        if ('addEventListener' in window) {
+            window.addEventListener('load', function () { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
+            document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+        }
+    </script>
+
+</body>
+
+<script type="text/javascript">
+/*
+$('.navbar-collapse').on('show.bs.collapse', function() {
+    $('.nav-pills').addClass('nav-stacked');
+});
+$('.navbar-collapse').on('hide.bs.collapse', function() {
+    $('.nav-pills').removeClass('nav-stacked');
+});
+$('.navbar-toggle').on('click', function(){
+    $('.navbar-collapse').collapse('hide');
+});*/
+</script>
+
+</html>
