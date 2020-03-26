@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" type="text/css">
     <script type="text/javascript" charset="utf-8" src="options.js"></script>
     <script type="text/javascript" charset="utf-8" src="scripts/time.js"></script>
-    <script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
+    
     <script type="text/javascript" charset="utf-8" src="scripts/jquery.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="scripts/vibrant.js"></script>
     <script type="text/javascript" charset="utf-8" src="scripts/color.js"></script>
@@ -16,7 +16,7 @@
 <body id="body" onload="init()">
 
     <div id="hello">
-        <a class="h">H</a><a>ELLO</a>
+        <a id="pri">HE</a><a id="sec">LLO</a>
     </div>
 
     <div id="bold">
@@ -27,7 +27,7 @@
             <br>
         </div>
         <div id="weather">
-            Currently it's <a id="temp"> ??&deg;</a>outside<br>
+            Currently it's <a id="temp">??&deg;</a>outside<br>
             <a id="city">your city</a>
         </div>
 
@@ -36,6 +36,7 @@
             <img src="img/bolt.png" id="bolt"></img>
         </div>
     </div>
+    <script type="text/javascript" charset="utf-8" src="scripts/main.js"></script>
     <script>
         if (matchColor == true) {
             colorMatch();

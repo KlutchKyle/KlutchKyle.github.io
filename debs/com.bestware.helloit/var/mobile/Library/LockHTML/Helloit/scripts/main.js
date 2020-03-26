@@ -16,3 +16,8 @@ function mainUpdate(type) {
         }
     }
 }
+
+
+document.getElementById('pri').innerHTML = pri;
+document.getElementById('sec').innerHTML = sec;
+document.getElementsById('pri').style.color = ct;
