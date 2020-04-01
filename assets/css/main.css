@@ -23,7 +23,7 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 /* change the background color */
 
 .navbar-custom {
-	background: #ffaf3e46;
+	background: rgba(219, 82, 0,0.3);
 	-webkit-backdrop-filter: blur(10px);
 	top: 0;
 	overflow: hidden;
@@ -123,7 +123,7 @@ body {
 	background-image: -moz-linear-gradient(60deg, #ff9500 5%, #db5200);
 	background-image: -webkit-linear-gradient(60deg, #ff9500 5%, #db5200);
 	background-image: -ms-linear-gradient(60deg, #ff9500 5%, #db5200);
-	background-image: linear-gradient(60deg, #db5200 5%, #ffaf3e);
+	background-image: linear-gradient(60deg, #ffaf3e 5%, #db5200);
 	background-repeat: no-repeat, no-repeat, no-repeat;
 	background-size: cover, cover, cover;
 	background-position: top left, center center, bottom center;
@@ -144,7 +144,7 @@ body:after {
 	background-image: -moz-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, #ff9500);
 	background-image: -webkit-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, #ff9500);
 	background-image: -ms-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, #ff9500);
-	background-image: linear-gradient(60deg, #ffaf3e 5%, #e07334);
+	background-image: linear-gradient(60deg, #db5200 5%, #ffaf3e);
 	background-repeat: no-repeat, no-repeat;
 	background-size: cover, cover;
 	background-position: top left, center center;
