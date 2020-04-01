@@ -20,42 +20,38 @@
 	}
 	/* change the background color */
 	.navbar-custom {
-		background: rgba(255, 255, 255, 0.25);
-		-webkit-backdrop-filter: blur(5px);
+		background: rgba(149, 129, 237, 0.3);
+		-webkit-backdrop-filter: blur(10px);
 		top: 0;
+		overflow: hidden;
 	}
+
 	/* change the brand and text color */
 	.navbar-custom .navbar-brand,
 	.navbar-custom .navbar-text {
 		color: rgb(0, 0, 0);
+		background-color: transparent;
 	}
+	
 	/* change the link color */
-	.navbar-custom .nav .nav-link {
-		color: rgb(0, 0, 0);
+	.navbar-custom .navbar-nav .nav-link {
+		color: white;
 		transition: 0.3s;
 	}
 	/* change the color of active or hovered links */
-	.nav .nav-item .nav-link.active,
-	.nav .nav-item:hover .nav-link {
-		background-color: #9581ED;
-		-webkit-backdrop-filter: blur(5px);
-		color: rgb(255, 255, 255);
+	.navbar-nav .nav-item .nav-link.active,
+	.navbar-nav .nav-item:hover .nav-link {
+		backdrop-filter: blur(5px);
+		color: black;
 	}
 	/* change the size of the toggle button*/
-	.navbar-toggle  {
-		display: block;
-		width: 50px;
-		height: 45px;
-		border-radius: 10px;
-		float: right;
-		background-image: url(../../images/menu-alt-512.png);
-		background-size: cover;
-		background-repeat: no-repeat;
+	.navbar-toggler  {
 		border: none;
-		position: absolute;
-		right: 1%;
-		top: 10%;
 
+	}
+
+	.fa-soc {
+		display: inline-block;
 	}
 	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 		display: block;
@@ -738,11 +734,12 @@
 /* Main */
 
 	#main {
+		top: 6em;
 		-webkit-backdrop-filter: opacity() blur(5px);
 		position: relative;
 		max-width: 100%;
 		min-width: 27em;
-		padding: 3em 3em 3em 3em ;
+		padding: 4.5em 3em 3em 3em ;
 		background: #ffffff18;
 		box-shadow: 0 0 100px 50px rgba(0, 0, 0, 0.144);
 		border-radius: 4px;
@@ -804,6 +801,14 @@
 					width: calc(100% + 4em);
 				}
 
+		}
+
+		body.is-loading #main {
+			opacity: 0;
+			-moz-transform: rotateX(15deg);
+			-webkit-transform: rotateX(15deg);
+			-ms-transform: rotateX(15deg);
+			transform: rotateX(15deg);
 		}
 
 /* Screenshots Section */

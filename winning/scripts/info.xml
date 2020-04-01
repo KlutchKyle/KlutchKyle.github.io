@@ -1,0 +1,28 @@
+<package>
+    <icon>assets/images/packageicon.png</icon>
+    <id>com.klutchkyle.winning</id>
+    <name>Winning</name>
+    <version>1.2.6</version>
+    <compatibility>
+        <firmware>
+            <miniOS>10.0</miniOS>
+            <maxiOS>13.x.x</maxiOS>
+            <otherVersions>unsupported</otherVersions>
+            <!--
+            for otherVersions, you can put either unsupported or unconfirmed
+            -->
+        </firmware>
+    </compatibility>
+    <dependencies>com.matchstic.xenhtml</dependencies>
+    <descriptionlist>
+        <description>Free Windows 10 Lock Screen XenHTML Widget! </description>
+    </descriptionlist>
+    <screenshots>
+        <screenshot>assets/screenshots/s1.jpg</screenshot>
+    </screenshots>
+    <changelog>
+        <change>Initial release</change>
+        <change>added cellular bars among other changes 1.2.6</change>
+    </changelog>
+    <links></links>
+</package>

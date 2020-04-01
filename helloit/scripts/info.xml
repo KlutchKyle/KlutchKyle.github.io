@@ -1,0 +1,28 @@
+<package>
+    <icon>assets/images/packageicon.png</icon>
+    <id>com.bestware.helloit</id>
+    <name>Hello.it</name>
+    <version>0.0.4</version>
+    <compatibility>
+        <firmware>
+            <miniOS>10.0</miniOS>
+            <maxiOS>13.x.x</maxiOS>
+            <otherVersions>unsupported</otherVersions>
+            <!--
+            for otherVersions, you can put either unsupported or unconfirmed
+            -->
+        </firmware>
+    </compatibility>
+    <dependencies>com.matchstic.xenhtml</dependencies>
+    <descriptionlist>
+        <description>Color responsive lockscreen xenHTML Widget!</description>
+    </descriptionlist>
+    <screenshots>
+        <screenshot>assets/screenshots/s1.jpg</screenshot>
+    </screenshots>
+    <changelog>
+        <change>Initial release</change>
+        <change>N/A</change>
+    </changelog>
+    <links></links>
+</package>
