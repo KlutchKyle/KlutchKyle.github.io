@@ -140,9 +140,9 @@
 			opacity: 0;
 			z-index: -1;
 			background-color: #9581ED;
-			background-image: -moz-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
-			background-image: -webkit-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
-			background-image: -ms-linear-gradient(60deg, rgba(255, 38, 0, 0.5) 5%, rgba(255, 217, 0, 0.712));
+			background-image: -moz-linear-gradient(60deg, #9581ED 5%, #4CC1FA);
+			background-image: -webkit-linear-gradient(60deg, #9581ED 5%, #4CC1FA);
+			background-image: -ms-linear-gradient(60deg, #9581ED 5%, #4CC1FA);
 			background-image: linear-gradient(60deg, rgb(176, 163, 233) 5%, rgb(138, 215, 253));
 			background-repeat: no-repeat,			no-repeat;
 			background-size: cover, cover;
