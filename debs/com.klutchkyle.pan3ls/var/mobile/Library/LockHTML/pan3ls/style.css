@@ -1,170 +1,177 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300);
-
 #body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-size: cover;
-    -webkit-animation: fadein 0.2s linear 1 normal;
-    -webkit-animation-fill-mode: forwards;
-    background-image: url();
-    background-repeat: no-repeat;
-    
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-size: cover;
+  -webkit-animation: fadein 0.2s linear 1 normal;
+  -webkit-animation-fill-mode: forwards;
+  background-image: url(imgs/screenshot.png);
+  background-repeat: no-repeat;
 }
-.hello {
-    color: white;
-    letter-spacing: 2px;
-    font-size: 25px;
-    font-family: "roboto";
-    font-weight: 300;
-  }
-  
-  #main-ctr {
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-  }
-  
-  .content {
-    border: 1px solid black;
-    display: inline-block;
-    position: relative;
-  }
-  
-  svg {
-    @include transform(scale(.5));
-  }
-  svg #smile-up,
-  svg #circle,
-  svg #eye-to-left,
-  svg #eye-to-right,
-  svg #wink,
-  svg #bg {
-    visibility: hidden;
-  }
+
+#main-ctr {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.content {
+  border: 1px solid black;
+  display: inline-block;
+  position: relative;
+}
+
+svg {
+  @include transform(scale(.5));
+}
+
+svg #smile-up, svg #circle, svg #eye-to-left, svg #eye-to-right, svg #wink, svg #bg {
+  visibility: hidden;
+}
+
 #content-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    zoom: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  zoom: 1;
 }
 
 .wrapper {
-    position: relative;
-    top: 450px;
-    color: white;
-    height: 25%;
-    align-items: center;
-    justify-content: center;
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;  
-    
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    -webkit-backdrop-filter: blur(15px);
-    border-radius: 50px;
-    margin: 0 auto;
-    width: 90%;
-  }
-  
-  .wrapper > * {
-    padding: 50px;
-    flex: 1 100%;
-    
+  position: relative;
+  top: 25%;
+  width: 96vw;
+  max-width: 700px;
+  color: white;
+  height: min(21vh, 300px);
+  align-items: center;
+  justify-content: center;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 25px;
+  margin: 0 auto;
+  transform: -50% -50%;
+  font-family: "Segoe UI Light";
+}
+
+.wrapper>* {
+  padding: 0px;
+  flex: 1 100%;
 }
 
 .aside-1 {
-    padding-right: 0px;
-    padding-bottom: 0px;
-    border-right: thick white solid;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  border-right: min(0.5vw, 3px) white solid;
 }
 
 .aside-2 {
-    padding-left: 0px;
-    justify-content: center;
+  padding-left: 0px;
+  justify-content: center;
 }
 
 #clock {
-    font-family: "Segoe UI Light";
-    font-size: 200px;
 
+  font-size: min(15vw, 60px);
 }
 
 #date {
-    position: relative;
-    top: -25px;
-    font-family: "Segoe UI Light";
-    font-size: 50px;
+  position: relative;
+  top: -25px;
+  font-size: min(5vw, 96px);
+  padding-top: 20px;
 }
 
 #wCond {
-    font-family: "Segoe UI Light";
-    font-size: 50px;
+
+  font-size: min(5vw, 96px);
 }
 
 #wTemp {
-    font-family: "Segoe UI Light";
-    font-size: 50px;
-    display: inline-block;
-    vertical-align: middle;
+  font-size: min(5vw, 96px);
+  display: inline-block;
+  vertical-align: middle;
 }
 
 #wIcon {
   vertical-align: middle;
-  width: 150px;
-  height: 150px;
+  width: min(15vw, 96px);
+  height: auto;
   display: inline-block;
-
 }
 
 .aside-2 {
-  padding-top: 50px;
+  padding-top: 0px;
 }
+
 .aside-1 {
   padding-top: 0px;
 }
 
-@media all and (min-width: 600px) {
-    .aside { flex: 1 auto; }
-}
- 
-@media all and (min-width: 800px) {
-    .aside-1 { order: 1; } 
-    .aside-2 { order: 2; }
-}
-
-@font-face {
-    font-family: "Segoe UI Light";
-    font-weight: 200;
-    src: url("fonts/segoeuil.ttf");
-}
-
-@font-face {
-    font-family: "SFPro";
-    font-weight: 200;
-    src: url("fonts/SFProDisplay-Regular.ttf");
-}
-
-@font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 300;
-    src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fBBc9.ttf) format('truetype');
+@media all and (min-width: 0.5vw) {
+  .aside {
+    flex: 1 auto;
   }
-  @font-face {
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+
+@media all and (min-width: 0.5vw) {
+  .aside-1 {
+    order: 1;
   }
+  .aside-2 {
+    order: 2;
+  }
+}
+
+@font-face {
+  font-family: "Segoe UI Light";
+  font-weight: 200;
+  src: url("fonts/segoeuil.ttf");
+}
+
+@font-face {
+  font-family: "SFPro";
+  font-weight: 200;
+  src: url("fonts/SFProDisplay-Regular.ttf");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v19/KFOlCnqEu92Fr1MmSU5fBBc9.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v19/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Aerial Rounded Bold';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Aerial Rounded'), local('Aerial-Rounded'), url(fonts/Arial\ Rounded\ Bold.ttf) format('truetype');
+}
 
 @-webkit-keyframes fadein {
-    0% {opacity: 0;}
-    50% {opacity: 0;}
-    100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

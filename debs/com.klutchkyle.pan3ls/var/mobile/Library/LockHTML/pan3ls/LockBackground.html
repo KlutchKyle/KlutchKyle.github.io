@@ -24,22 +24,19 @@
             </aside>
             <aside class="aside aside-2">
                 <div id="wCond">Partly Cloudy</div>
-                <img id="wIcon" src="imgs/34.png" style="width: 150px; height:150px">
+                <img id="wIcon" src="imgs/34.png">
                 <div id="wTemp">
                     &nbsp;
                     null&deg;F
                 </div>
-                
+
             </aside>
         </div>
     </div>
 
     <script type="text/javascript">
         //scale resolution
-        var siteWidth = 1100;
-        var scale = screen.width / siteWidth;
-        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + siteWidth + ', initial-scale=' + scale + '');
-        document.getElementById("body").style = "-webkit-animation: fadein 0.2s linear 1 normal; -webkit-animation-fill-mode: forwards";
+
 
         function mainUpdate(type) {
             if (type == 'weather') {

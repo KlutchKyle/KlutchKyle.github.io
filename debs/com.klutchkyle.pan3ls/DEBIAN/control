@@ -1,8 +1,8 @@
 Package: com.klutchkyle.pan3ls
 Name: Pan3ls
-Version: 0.0.3
+Version: 0.4.0
 Architecture: iphoneos-arm
-Description: Panel lock screen widget for xenHTML
+Description: Panel lock screen widget for Xen Html with color matching text!
 Maintainer: KlutchKyle <kylethelegendmc@gmail.com
 Depends: firmware (>= 10.0), com.matchstic.xenhtml, com.klutchkyle.repoicons
 Author: KlutchKyle <kylethelegendmc@gmail.com>
