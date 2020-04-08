@@ -370,7 +370,6 @@ module.exports = eq;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var Bluebird = __webpack_require__(13);
@@ -563,207 +562,12 @@ function getColorIndex(r, g, b) {
     return (r << (2 * exports.SIGBITS)) + (g << exports.SIGBITS) + b;
 }
 exports.getColorIndex = getColorIndex;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Bluebird = __webpack_require__(13);
-exports.DELTAE94_DIFF_STATUS = {
-    NA: 0,
-    PERFECT: 1,
-    CLOSE: 2,
-    GOOD: 10,
-    SIMILAR: 50
-};
-exports.SIGBITS = 5;
-exports.RSHIFT = 8 - exports.SIGBITS;
-function defer() {
-    var resolve;
-    var reject;
-    var promise = new Bluebird(function (_resolve, _reject) {
-        resolve = _resolve;
-        reject = _reject;
-    });
-    return { resolve: resolve, reject: reject, promise: promise };
-}
-exports.defer = defer;
-function hexToRgb(hex) {
-    var m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return m === null ? null : [m[1], m[2], m[3]].map(function (s) { return parseInt(s, 16); });
-}
-exports.hexToRgb = hexToRgb;
-function rgbToHex(r, g, b) {
-    return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1, 7);
-}
-exports.rgbToHex = rgbToHex;
-function rgbToHsl(r, g, b) {
-    r /= 255;
-    g /= 255;
-    b /= 255;
-    var max = Math.max(r, g, b);
-    var min = Math.min(r, g, b);
-    var h;
-    var s;
-    var l = (max + min) / 2;
-    if (max === min) {
-        h = s = 0;
-    }
-    else {
-        var d = max - min;
-        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-        switch (max) {
-            case r:
-                h = (g - b) / d + (g < b ? 6 : 0);
-                break;
-            case g:
-                h = (b - r) / d + 2;
-                break;
-            case b:
-                h = (r - g) / d + 4;
-                break;
-        }
-        h /= 6;
-    }
-    return [h, s, l];
-}
-exports.rgbToHsl = rgbToHsl;
-function hslToRgb(h, s, l) {
-    var r;
-    var g;
-    var b;
-    function hue2rgb(p, q, t) {
-        if (t < 0)
-            t += 1;
-        if (t > 1)
-            t -= 1;
-        if (t < 1 / 6)
-            return p + (q - p) * 6 * t;
-        if (t < 1 / 2)
-            return q;
-        if (t < 2 / 3)
-            return p + (q - p) * (2 / 3 - t) * 6;
-        return p;
-    }
-    if (s === 0) {
-        r = g = b = l;
-    }
-    else {
-        var q = l < 0.5 ? l * (1 + s) : l + s - (l * s);
-        var p = 2 * l - q;
-        r = hue2rgb(p, q, h + 1 / 3);
-        g = hue2rgb(p, q, h);
-        b = hue2rgb(p, q, h - (1 / 3));
-    }
-    return [
-        r * 255,
-        g * 255,
-        b * 255
-    ];
-}
-exports.hslToRgb = hslToRgb;
-function rgbToXyz(r, g, b) {
-    r /= 255;
-    g /= 255;
-    b /= 255;
-    r = r > 0.04045 ? Math.pow((r + 0.005) / 1.055, 2.4) : r / 12.92;
-    g = g > 0.04045 ? Math.pow((g + 0.005) / 1.055, 2.4) : g / 12.92;
-    b = b > 0.04045 ? Math.pow((b + 0.005) / 1.055, 2.4) : b / 12.92;
-    r *= 100;
-    g *= 100;
-    b *= 100;
-    var x = r * 0.4124 + g * 0.3576 + b * 0.1805;
-    var y = r * 0.2126 + g * 0.7152 + b * 0.0722;
-    var z = r * 0.0193 + g * 0.1192 + b * 0.9505;
-    return [x, y, z];
-}
-exports.rgbToXyz = rgbToXyz;
-function xyzToCIELab(x, y, z) {
-    var REF_X = 95.047;
-    var REF_Y = 100;
-    var REF_Z = 108.883;
-    x /= REF_X;
-    y /= REF_Y;
-    z /= REF_Z;
-    x = x > 0.008856 ? Math.pow(x, 1 / 3) : 7.787 * x + 16 / 116;
-    y = y > 0.008856 ? Math.pow(y, 1 / 3) : 7.787 * y + 16 / 116;
-    z = z > 0.008856 ? Math.pow(z, 1 / 3) : 7.787 * z + 16 / 116;
-    var L = 116 * y - 16;
-    var a = 500 * (x - y);
-    var b = 200 * (y - z);
-    return [L, a, b];
-}
-exports.xyzToCIELab = xyzToCIELab;
-function rgbToCIELab(r, g, b) {
-    var _a = rgbToXyz(r, g, b), x = _a[0], y = _a[1], z = _a[2];
-    return xyzToCIELab(x, y, z);
-}
-exports.rgbToCIELab = rgbToCIELab;
-function deltaE94(lab1, lab2) {
-    var WEIGHT_L = 1;
-    var WEIGHT_C = 1;
-    var WEIGHT_H = 1;
-    var L1 = lab1[0], a1 = lab1[1], b1 = lab1[2];
-    var L2 = lab2[0], a2 = lab2[1], b2 = lab2[2];
-    var dL = L1 - L2;
-    var da = a1 - a2;
-    var db = b1 - b2;
-    var xC1 = Math.sqrt(a1 * a1 + b1 * b1);
-    var xC2 = Math.sqrt(a2 * a2 + b2 * b2);
-    var xDL = L2 - L1;
-    var xDC = xC2 - xC1;
-    var xDE = Math.sqrt(dL * dL + da * da + db * db);
-    var xDH = (Math.sqrt(xDE) > Math.sqrt(Math.abs(xDL)) + Math.sqrt(Math.abs(xDC)))
-        ? Math.sqrt(xDE * xDE - xDL * xDL - xDC * xDC)
-        : 0;
-    var xSC = 1 + 0.045 * xC1;
-    var xSH = 1 + 0.015 * xC1;
-    xDL /= WEIGHT_L;
-    xDC /= WEIGHT_C * xSC;
-    xDH /= WEIGHT_H * xSH;
-    return Math.sqrt(xDL * xDL + xDC * xDC + xDH * xDH);
-}
-exports.deltaE94 = deltaE94;
-function rgbDiff(rgb1, rgb2) {
-    var lab1 = rgbToCIELab.apply(undefined, rgb1);
-    var lab2 = rgbToCIELab.apply(undefined, rgb2);
-    return deltaE94(lab1, lab2);
-}
-exports.rgbDiff = rgbDiff;
-function hexDiff(hex1, hex2) {
-    var rgb1 = hexToRgb(hex1);
-    var rgb2 = hexToRgb(hex2);
-    return rgbDiff(rgb1, rgb2);
-}
-exports.hexDiff = hexDiff;
-function getColorDiffStatus(d) {
-    if (d < exports.DELTAE94_DIFF_STATUS.NA)
-        return 'N/A';
-    // Not perceptible by human eyes
-    if (d <= exports.DELTAE94_DIFF_STATUS.PERFECT)
-        return 'Perfect';
-    // Perceptible through close observation
-    if (d <= exports.DELTAE94_DIFF_STATUS.CLOSE)
-        return 'Close';
-    // Perceptible at a glance
-    if (d <= exports.DELTAE94_DIFF_STATUS.GOOD)
-        return 'Good';
-    // Colors are more similar than opposite
-    if (d < exports.DELTAE94_DIFF_STATUS.SIMILAR)
-        return 'Similar';
-    return 'Wrong';
-}
-exports.getColorDiffStatus = getColorDiffStatus;
-function getColorIndex(r, g, b) {
-    return (r << (2 * exports.SIGBITS)) + (g << exports.SIGBITS) + b;
-}
-exports.getColorIndex = getColorIndex;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
 /* 11 */
 /***/ (function(module, exports) {
 
-<<<<<<< HEAD
 var g;
 
 // This works in non-strict mode
@@ -785,36 +589,12 @@ try {
 // easier to handle this case. if(!global) { ...}
 
 module.exports = g;
-=======
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
 /* 12 */
 /***/ (function(module, exports) {
 
-<<<<<<< HEAD
 module.exports = function(module) {
 	if(!module.webpackPolyfill) {
 		module.deprecate = function() {};
@@ -837,30 +617,6 @@ module.exports = function(module) {
 	}
 	return module;
 };
-=======
-module.exports = function(module) {
-	if(!module.webpackPolyfill) {
-		module.deprecate = function() {};
-		module.paths = [];
-		// module.parent = undefined by default
-		if(!module.children) module.children = [];
-		Object.defineProperty(module, "loaded", {
-			enumerable: true,
-			get: function() {
-				return module.l;
-			}
-		});
-		Object.defineProperty(module, "id", {
-			enumerable: true,
-			get: function() {
-				return module.i;
-			}
-		});
-		module.webpackPolyfill = 1;
-	}
-	return module;
-};
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -7564,7 +7320,6 @@ process.umask = function() { return 0; };
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var util_1 = __webpack_require__(10);
@@ -7605,48 +7360,6 @@ var Swatch = (function () {
     return Swatch;
 }());
 exports.Swatch = Swatch;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var util_1 = __webpack_require__(10);
-var Swatch = (function () {
-    function Swatch(rgb, population) {
-        this._rgb = rgb;
-        this._population = population;
-    }
-    Swatch.prototype.getRgb = function () { return this._rgb; };
-    Swatch.prototype.getHsl = function () {
-        if (!this._hsl) {
-            var _a = this._rgb, r = _a[0], g = _a[1], b = _a[2];
-            this._hsl = util_1.rgbToHsl(r, g, b);
-        }
-        return this._hsl;
-    };
-    Swatch.prototype.getPopulation = function () { return this._population; };
-    Swatch.prototype.getHex = function () {
-        if (!this._hex) {
-            var _a = this._rgb, r = _a[0], g = _a[1], b = _a[2];
-            this._hex = util_1.rgbToHex(r, g, b);
-        }
-        return this._hex;
-    };
-    Swatch.prototype.getYiq = function () {
-        if (!this._yiq) {
-            var rgb = this._rgb;
-            this._yiq = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
-        }
-        return this._yiq;
-    };
-    Swatch.prototype.getTitleTextColor = function () {
-        return this.getYiq() < 200 ? '#fff' : '#000';
-    };
-    Swatch.prototype.getBodyTextColor = function () {
-        return this.getYiq() < 150 ? '#fff' : '#000';
-    };
-    return Swatch;
-}());
-exports.Swatch = Swatch;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -7654,7 +7367,6 @@ exports.Swatch = Swatch;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var Bluebird = __webpack_require__(13);
@@ -7712,65 +7424,6 @@ Vibrant.DefaultOpts = {
     filters: [Filter.Default]
 };
 exports.default = Vibrant;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Bluebird = __webpack_require__(13);
-var defaults = __webpack_require__(39);
-var builder_1 = __webpack_require__(138);
-var Util = __webpack_require__(10);
-var Quantizer = __webpack_require__(145);
-var Generator = __webpack_require__(142);
-var Filter = __webpack_require__(140);
-var Vibrant = (function () {
-    function Vibrant(_src, opts) {
-        this._src = _src;
-        this.opts = defaults({}, opts, Vibrant.DefaultOpts);
-    }
-    Vibrant.from = function (src) {
-        return new builder_1.default(src);
-    };
-    Vibrant.prototype._process = function (image) {
-        var _this = this;
-        var opts = this.opts;
-        var quantizer = opts.quantizer, generator = opts.generator;
-        image.scaleDown(opts);
-        var imageData = image.getImageData();
-        return Bluebird.resolve(quantizer(imageData.data, opts))
-            .then(function (colors) { return Bluebird.resolve(generator(colors)); })
-            .tap(function (palette) { return _this._palette = palette; })
-            .finally(function () { return image.remove(); });
-    };
-    Vibrant.prototype.palette = function () {
-        return this.swatches();
-    };
-    Vibrant.prototype.swatches = function () {
-        return this._palette;
-    };
-    Vibrant.prototype.getPalette = function (cb) {
-        var _this = this;
-        var image = new this.opts.ImageClass();
-        return image.load(this._src)
-            .then(function (image) { return _this._process(image); })
-            .asCallback(cb);
-    };
-    return Vibrant;
-}());
-Vibrant.Builder = builder_1.default;
-Vibrant.Quantizer = Quantizer;
-Vibrant.Generator = Generator;
-Vibrant.Filter = Filter;
-Vibrant.Util = Util;
-Vibrant.DefaultOpts = {
-    colorCount: 64,
-    quality: 5,
-    generator: Generator.Default,
-    ImageClass: null,
-    quantizer: Quantizer.MMCQ,
-    filters: [Filter.Default]
-};
-exports.default = Vibrant;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -7778,19 +7431,11 @@ exports.default = Vibrant;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 var vibrant_1 = __webpack_require__(47);
 var browser_1 = __webpack_require__(144);
 vibrant_1.default.DefaultOpts.ImageClass = browser_1.default;
 module.exports = vibrant_1.default;
-=======
-
-var vibrant_1 = __webpack_require__(47);
-var browser_1 = __webpack_require__(144);
-vibrant_1.default.DefaultOpts.ImageClass = browser_1.default;
-module.exports = vibrant_1.default;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -11334,7 +10979,6 @@ exports.clearImmediate = clearImmediate;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var clone = __webpack_require__(127);
@@ -11396,69 +11040,6 @@ var Builder = (function () {
     return Builder;
 }());
 exports.default = Builder;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var clone = __webpack_require__(127);
-var vibrant_1 = __webpack_require__(47);
-var Builder = (function () {
-    function Builder(src, opts) {
-        if (opts === void 0) { opts = {}; }
-        this._src = src;
-        this._opts = opts;
-        this._opts.filters = clone(vibrant_1.default.DefaultOpts.filters);
-    }
-    Builder.prototype.maxColorCount = function (n) {
-        this._opts.colorCount = n;
-        return this;
-    };
-    Builder.prototype.maxDimension = function (d) {
-        this._opts.maxDimension = d;
-        return this;
-    };
-    Builder.prototype.addFilter = function (f) {
-        this._opts.filters.push(f);
-        return this;
-    };
-    Builder.prototype.removeFilter = function (f) {
-        var i = this._opts.filters.indexOf(f);
-        if (i > 0)
-            this._opts.filters.splice(i);
-        return this;
-    };
-    Builder.prototype.clearFilters = function () {
-        this._opts.filters = [];
-        return this;
-    };
-    Builder.prototype.quality = function (q) {
-        this._opts.quality = q;
-        return this;
-    };
-    Builder.prototype.useImageClass = function (imageClass) {
-        this._opts.ImageClass = imageClass;
-        return this;
-    };
-    Builder.prototype.useGenerator = function (generator) {
-        this._opts.generator = generator;
-        return this;
-    };
-    Builder.prototype.useQuantizer = function (quantizer) {
-        this._opts.quantizer = quantizer;
-        return this;
-    };
-    Builder.prototype.build = function () {
-        return new vibrant_1.default(this._src, this._opts);
-    };
-    Builder.prototype.getPalette = function (cb) {
-        return this.build().getPalette(cb);
-    };
-    Builder.prototype.getSwatches = function (cb) {
-        return this.build().getPalette(cb);
-    };
-    return Builder;
-}());
-exports.default = Builder;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -11466,7 +11047,6 @@ exports.default = Builder;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 function defaultFilter(r, g, b, a) {
@@ -11474,15 +11054,6 @@ function defaultFilter(r, g, b, a) {
         && !(r > 250 && g > 250 && b > 250);
 }
 exports.default = defaultFilter;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-function defaultFilter(r, g, b, a) {
-    return a >= 125
-        && !(r > 250 && g > 250 && b > 250);
-}
-exports.default = defaultFilter;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -11490,17 +11061,10 @@ exports.default = defaultFilter;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var default_1 = __webpack_require__(139);
 exports.Default = default_1.default;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var default_1 = __webpack_require__(139);
-exports.Default = default_1.default;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -11508,7 +11072,6 @@ exports.Default = default_1.default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var color_1 = __webpack_require__(46);
@@ -11613,112 +11176,6 @@ var DefaultGenerator = function (swatches, opts) {
     return palette;
 };
 exports.default = DefaultGenerator;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var color_1 = __webpack_require__(46);
-var util_1 = __webpack_require__(10);
-var defaults = __webpack_require__(39);
-var DefaultOpts = {
-    targetDarkLuma: 0.26,
-    maxDarkLuma: 0.45,
-    minLightLuma: 0.55,
-    targetLightLuma: 0.74,
-    minNormalLuma: 0.3,
-    targetNormalLuma: 0.5,
-    maxNormalLuma: 0.7,
-    targetMutesSaturation: 0.3,
-    maxMutesSaturation: 0.4,
-    targetVibrantSaturation: 1.0,
-    minVibrantSaturation: 0.35,
-    weightSaturation: 3,
-    weightLuma: 6,
-    weightPopulation: 1,
-};
-function _findMaxPopulation(swatches) {
-    var p = 0;
-    swatches.forEach(function (s) {
-        p = Math.max(p, s.getPopulation());
-    });
-    return p;
-}
-function _isAlreadySelected(palette, s) {
-    return palette.Vibrant === s
-        || palette.DarkVibrant === s
-        || palette.LightVibrant === s
-        || palette.Muted === s
-        || palette.DarkMuted === s
-        || palette.LightMuted === s;
-}
-function _createComparisonValue(saturation, targetSaturation, luma, targetLuma, population, maxPopulation, opts) {
-    function weightedMean() {
-        var values = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            values[_i] = arguments[_i];
-        }
-        var sum = 0;
-        var weightSum = 0;
-        for (var i = 0; i < values.length; i += 2) {
-            var value = values[i];
-            var weight = values[i + 1];
-            sum += value * weight;
-            weightSum += weight;
-        }
-        return sum / weightSum;
-    }
-    function invertDiff(value, targetValue) {
-        return 1 - Math.abs(value - targetValue);
-    }
-    return weightedMean(invertDiff(saturation, targetSaturation), opts.weightSaturation, invertDiff(luma, targetLuma), opts.weightLuma, population / maxPopulation, opts.weightPopulation);
-}
-function _findColorVariation(palette, swatches, maxPopulation, targetLuma, minLuma, maxLuma, targetSaturation, minSaturation, maxSaturation, opts) {
-    var max = null;
-    var maxValue = 0;
-    swatches.forEach(function (swatch) {
-        var _a = swatch.getHsl(), s = _a[1], l = _a[2];
-        if (s >= minSaturation && s <= maxSaturation
-            && l >= minLuma && l <= maxLuma
-            && !_isAlreadySelected(palette, swatch)) {
-            var value = _createComparisonValue(s, targetSaturation, l, targetLuma, swatch.getPopulation(), maxPopulation, opts);
-            if (max === null || value > maxValue) {
-                max = swatch;
-                maxValue = value;
-            }
-        }
-    });
-    return max;
-}
-function _generateVariationColors(swatches, maxPopulation, opts) {
-    var palette = {};
-    palette.Vibrant = _findColorVariation(palette, swatches, maxPopulation, opts.targetNormalLuma, opts.minNormalLuma, opts.maxNormalLuma, opts.targetVibrantSaturation, opts.minVibrantSaturation, 1, opts);
-    palette.LightVibrant = _findColorVariation(palette, swatches, maxPopulation, opts.targetLightLuma, opts.minLightLuma, 1, opts.targetVibrantSaturation, opts.minVibrantSaturation, 1, opts);
-    palette.DarkVibrant = _findColorVariation(palette, swatches, maxPopulation, opts.targetDarkLuma, 0, opts.maxDarkLuma, opts.targetVibrantSaturation, opts.minVibrantSaturation, 1, opts);
-    palette.Muted = _findColorVariation(palette, swatches, maxPopulation, opts.targetNormalLuma, opts.minNormalLuma, opts.maxNormalLuma, opts.targetMutesSaturation, 0, opts.maxMutesSaturation, opts);
-    palette.LightMuted = _findColorVariation(palette, swatches, maxPopulation, opts.targetLightLuma, opts.minLightLuma, 1, opts.targetMutesSaturation, 0, opts.maxMutesSaturation, opts);
-    palette.DarkMuted = _findColorVariation(palette, swatches, maxPopulation, opts.targetDarkLuma, 0, opts.maxDarkLuma, opts.targetMutesSaturation, 0, opts.maxMutesSaturation, opts);
-    return palette;
-}
-function _generateEmptySwatches(palette, maxPopulation, opts) {
-    if (palette.Vibrant === null && palette.DarkVibrant !== null) {
-        var _a = palette.DarkVibrant.getHsl(), h = _a[0], s = _a[1], l = _a[2];
-        l = opts.targetNormalLuma;
-        palette.Vibrant = new color_1.Swatch(util_1.hslToRgb(h, s, l), 0);
-    }
-    if (palette.DarkVibrant === null && palette.Vibrant !== null) {
-        var _b = palette.Vibrant.getHsl(), h = _b[0], s = _b[1], l = _b[2];
-        l = opts.targetDarkLuma;
-        palette.DarkVibrant = new color_1.Swatch(util_1.hslToRgb(h, s, l), 0);
-    }
-}
-var DefaultGenerator = function (swatches, opts) {
-    opts = defaults({}, opts, DefaultOpts);
-    var maxPopulation = _findMaxPopulation(swatches);
-    var palette = _generateVariationColors(swatches, maxPopulation, opts);
-    _generateEmptySwatches(palette, maxPopulation, opts);
-    return palette;
-};
-exports.default = DefaultGenerator;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -11726,17 +11183,10 @@ exports.default = DefaultGenerator;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var default_1 = __webpack_require__(141);
 exports.Default = default_1.default;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var default_1 = __webpack_require__(141);
-exports.Default = default_1.default;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -11744,7 +11194,6 @@ exports.Default = default_1.default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var ImageBase = (function () {
@@ -11768,31 +11217,6 @@ var ImageBase = (function () {
     return ImageBase;
 }());
 exports.ImageBase = ImageBase;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var ImageBase = (function () {
-    function ImageBase() {
-    }
-    ImageBase.prototype.scaleDown = function (opts) {
-        var width = this.getWidth();
-        var height = this.getHeight();
-        var ratio = 1;
-        if (opts.maxDimension > 0) {
-            var maxSide = Math.max(width, height);
-            if (maxSide > opts.maxDimension)
-                ratio = opts.maxDimension / maxSide;
-        }
-        else {
-            ratio = 1 / opts.quality;
-        }
-        if (ratio < 1)
-            this.resize(width * ratio, height * ratio, ratio);
-    };
-    return ImageBase;
-}());
-exports.ImageBase = ImageBase;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -11800,7 +11224,6 @@ exports.ImageBase = ImageBase;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -11911,118 +11334,6 @@ var BroswerImage = (function (_super) {
     return BroswerImage;
 }(base_1.ImageBase));
 exports.default = BroswerImage;
-=======
-
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return function (d, b) {
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-Object.defineProperty(exports, "__esModule", { value: true });
-var Bluebird = __webpack_require__(13);
-var base_1 = __webpack_require__(143);
-var Url = __webpack_require__(149);
-function isRelativeUrl(url) {
-    var u = Url.parse(url);
-    return u.protocol === null
-        && u.host === null
-        && u.port === null;
-}
-function isSameOrigin(a, b) {
-    var ua = Url.parse(a);
-    var ub = Url.parse(b);
-    // https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy
-    return ua.protocol === ub.protocol
-        && ua.hostname === ub.hostname
-        && ua.port === ub.port;
-}
-var BroswerImage = (function (_super) {
-    __extends(BroswerImage, _super);
-    function BroswerImage() {
-        return _super !== null && _super.apply(this, arguments) || this;
-    }
-    BroswerImage.prototype._initCanvas = function () {
-        var img = this.image;
-        var canvas = this._canvas = document.createElement('canvas');
-        var context = this._context = canvas.getContext('2d');
-        canvas.className = 'vibrant-canvas';
-        canvas.style.visibility = 'hidden';
-        this._width = canvas.width = img.width;
-        this._height = canvas.height = img.height;
-        context.drawImage(img, 0, 0);
-        document.body.appendChild(canvas);
-    };
-    BroswerImage.prototype.load = function (image) {
-        var _this = this;
-        var img = null;
-        var src = null;
-        if (typeof image === 'string') {
-            img = document.createElement('img');
-            src = image;
-        }
-        else if (image instanceof HTMLImageElement) {
-            img = image;
-            src = image.src;
-        }
-        else {
-            return Bluebird.reject(new Error("Cannot load buffer as an image in browser"));
-        }
-        this.image = img;
-        if (!isRelativeUrl(src) && !isSameOrigin(window.location.href, src)) {
-            img.crossOrigin = 'anonymous';
-        }
-        if (typeof image === 'string') {
-            img.src = src;
-        }
-        return new Bluebird(function (resolve, reject) {
-            var onImageLoad = function () {
-                _this._initCanvas();
-                resolve(_this);
-            };
-            img.onload = onImageLoad;
-            // Already loaded
-            if (img.complete)
-                onImageLoad();
-            img.onerror = function (e) { return reject(new Error("Fail to load image: " + src)); };
-        });
-    };
-    BroswerImage.prototype.clear = function () {
-        this._context.clearRect(0, 0, this._width, this._height);
-    };
-    BroswerImage.prototype.update = function (imageData) {
-        this._context.putImageData(imageData, 0, 0);
-    };
-    BroswerImage.prototype.getWidth = function () {
-        return this._width;
-    };
-    BroswerImage.prototype.getHeight = function () {
-        return this._height;
-    };
-    BroswerImage.prototype.resize = function (targetWidth, targetHeight, ratio) {
-        var _a = this, canvas = _a._canvas, context = _a._context, img = _a.image;
-        this._width = canvas.width = targetWidth;
-        this._height = canvas.height = targetHeight;
-        context.scale(ratio, ratio);
-        context.drawImage(img, 0, 0);
-    };
-    BroswerImage.prototype.getPixelCount = function () {
-        return this._width * this._height;
-    };
-    BroswerImage.prototype.getImageData = function () {
-        return this._context.getImageData(0, 0, this._width, this._height);
-    };
-    BroswerImage.prototype.remove = function () {
-        this._canvas.parentNode.removeChild(this._canvas);
-    };
-    return BroswerImage;
-}(base_1.ImageBase));
-exports.default = BroswerImage;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -12030,17 +11341,10 @@ exports.default = BroswerImage;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var mmcq_1 = __webpack_require__(146);
 exports.MMCQ = mmcq_1.default;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var mmcq_1 = __webpack_require__(146);
-exports.MMCQ = mmcq_1.default;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -12048,7 +11352,6 @@ exports.MMCQ = mmcq_1.default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var color_1 = __webpack_require__(46);
@@ -12116,75 +11419,6 @@ var MMCQ = function (pixels, opts) {
     return swatches;
 };
 exports.default = MMCQ;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var color_1 = __webpack_require__(46);
-var vbox_1 = __webpack_require__(148);
-var pqueue_1 = __webpack_require__(147);
-var maxIterations = 1000;
-var fractByPopulations = 0.75;
-function _splitBoxes(pq, target) {
-    var colorCount = 1;
-    var iteration = 0;
-    while (iteration < maxIterations) {
-        iteration++;
-        var vbox = pq.pop();
-        if (!vbox.count())
-            continue;
-        var _a = vbox.split(), vbox1 = _a[0], vbox2 = _a[1];
-        pq.push(vbox1);
-        if (vbox2) {
-            pq.push(vbox2);
-            colorCount++;
-        }
-        if (colorCount >= target || iteration > maxIterations)
-            return;
-    }
-}
-var MMCQ = function (pixels, opts) {
-    if (pixels.length === 0 || opts.colorCount < 2 || opts.colorCount > 256) {
-        throw new Error('Wrong MMCQ parameters');
-    }
-    var shouldIgnore = null;
-    if (Array.isArray(opts.filters) && opts.filters.length > 0) {
-        shouldIgnore = function (r, g, b, a) {
-            for (var _i = 0, _a = opts.filters; _i < _a.length; _i++) {
-                var f = _a[_i];
-                if (!f(r, g, b, a))
-                    return true;
-            }
-            return false;
-        };
-    }
-    var vbox = vbox_1.default.build(pixels, shouldIgnore);
-    var hist = vbox.hist;
-    var colorCount = Object.keys(hist).length;
-    var pq = new pqueue_1.default(function (a, b) { return a.count() - b.count(); });
-    pq.push(vbox);
-    // first set of colors, sorted by population
-    _splitBoxes(pq, fractByPopulations * opts.colorCount);
-    // Re-order
-    var pq2 = new pqueue_1.default(function (a, b) { return a.count() * a.volume() - b.count() * b.volume(); });
-    pq2.contents = pq.contents;
-    // next set - generate the median cuts using the (npix * vol) sorting.
-    _splitBoxes(pq2, opts.colorCount - pq2.size());
-    // calculate the actual colors
-    var swatches = [];
-    // let vboxes = []
-    while (pq2.size()) {
-        var v = pq2.pop();
-        var color = v.avg();
-        var r = color[0], g = color[1], b = color[2];
-        if (shouldIgnore === null || !shouldIgnore(r, g, b, 255)) {
-            // @vboxes.push v
-            swatches.push(new color_1.Swatch(color, v.count()));
-        }
-    }
-    return swatches;
-};
-exports.default = MMCQ;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -12192,7 +11426,6 @@ exports.default = MMCQ;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var PQueue = (function () {
@@ -12230,45 +11463,6 @@ var PQueue = (function () {
     return PQueue;
 }());
 exports.default = PQueue;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var PQueue = (function () {
-    function PQueue(comparator) {
-        this._comparator = comparator;
-        this.contents = [];
-        this._sorted = false;
-    }
-    PQueue.prototype._sort = function () {
-        if (!this._sorted) {
-            this.contents.sort(this._comparator);
-            this._sorted = true;
-        }
-    };
-    PQueue.prototype.push = function (item) {
-        this.contents.push(item);
-        this._sorted = false;
-    };
-    PQueue.prototype.peek = function (index) {
-        this._sort();
-        index = typeof index === 'number' ? index : this.contents.length - 1;
-        return this.contents[index];
-    };
-    PQueue.prototype.pop = function () {
-        this._sort();
-        return this.contents.pop();
-    };
-    PQueue.prototype.size = function () {
-        return this.contents.length;
-    };
-    PQueue.prototype.map = function (mapper) {
-        this._sort();
-        return this.contents.map(mapper);
-    };
-    return PQueue;
-}());
-exports.default = PQueue;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -12276,7 +11470,6 @@ exports.default = PQueue;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var util_1 = __webpack_require__(10);
@@ -12517,248 +11710,6 @@ var VBox = (function () {
     return VBox;
 }());
 exports.default = VBox;
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var util_1 = __webpack_require__(10);
-var VBox = (function () {
-    function VBox(r1, r2, g1, g2, b1, b2, hist) {
-        this._volume = -1;
-        this._count = -1;
-        this.dimension = { r1: r1, r2: r2, g1: g1, g2: g2, b1: b1, b2: b2 };
-        this.hist = hist;
-    }
-    VBox.build = function (pixels, shouldIgnore) {
-        var hn = 1 << (3 * util_1.SIGBITS);
-        var hist = new Uint32Array(hn);
-        var rmax;
-        var rmin;
-        var gmax;
-        var gmin;
-        var bmax;
-        var bmin;
-        var r;
-        var g;
-        var b;
-        var a;
-        rmax = gmax = bmax = 0;
-        rmin = gmin = bmin = Number.MAX_VALUE;
-        var n = pixels.length / 4;
-        var i = 0;
-        while (i < n) {
-            var offset = i * 4;
-            i++;
-            r = pixels[offset + 0];
-            g = pixels[offset + 1];
-            b = pixels[offset + 2];
-            a = pixels[offset + 3];
-            if (typeof shouldIgnore === 'function' && shouldIgnore(r, g, b, a))
-                continue;
-            r = r >> util_1.RSHIFT;
-            g = g >> util_1.RSHIFT;
-            b = b >> util_1.RSHIFT;
-            var index = util_1.getColorIndex(r, g, b);
-            hist[index] += 1;
-            if (r > rmax)
-                rmax = r;
-            if (r < rmin)
-                rmin = r;
-            if (g > gmax)
-                gmax = g;
-            if (g < gmin)
-                gmin = g;
-            if (b > bmax)
-                bmax = b;
-            if (b < bmin)
-                bmin = b;
-        }
-        return new VBox(rmin, rmax, gmin, gmax, bmin, bmax, hist);
-    };
-    VBox.prototype.invalidate = function () {
-        this._volume = this._count = -1;
-        this._avg = null;
-    };
-    VBox.prototype.volume = function () {
-        if (this._volume < 0) {
-            var _a = this.dimension, r1 = _a.r1, r2 = _a.r2, g1 = _a.g1, g2 = _a.g2, b1 = _a.b1, b2 = _a.b2;
-            this._volume = (r2 - r1 + 1) * (g2 - g1 + 1) * (b2 - b1 + 1);
-        }
-        return this._volume;
-    };
-    VBox.prototype.count = function () {
-        if (this._count < 0) {
-            var hist = this.hist;
-            var _a = this.dimension, r1 = _a.r1, r2 = _a.r2, g1 = _a.g1, g2 = _a.g2, b1 = _a.b1, b2 = _a.b2;
-            var c = 0;
-            for (var r = r1; r <= r2; r++) {
-                for (var g = g1; g <= g2; g++) {
-                    for (var b = b1; b <= b2; b++) {
-                        var index = util_1.getColorIndex(r, g, b);
-                        c += hist[index];
-                    }
-                }
-            }
-            this._count = c;
-        }
-        return this._count;
-    };
-    VBox.prototype.clone = function () {
-        var hist = this.hist;
-        var _a = this.dimension, r1 = _a.r1, r2 = _a.r2, g1 = _a.g1, g2 = _a.g2, b1 = _a.b1, b2 = _a.b2;
-        return new VBox(r1, r2, g1, g2, b1, b2, hist);
-    };
-    VBox.prototype.avg = function () {
-        if (!this._avg) {
-            var hist = this.hist;
-            var _a = this.dimension, r1 = _a.r1, r2 = _a.r2, g1 = _a.g1, g2 = _a.g2, b1 = _a.b1, b2 = _a.b2;
-            var ntot = 0;
-            var mult = 1 << (8 - util_1.SIGBITS);
-            var rsum = void 0;
-            var gsum = void 0;
-            var bsum = void 0;
-            rsum = gsum = bsum = 0;
-            for (var r = r1; r <= r2; r++) {
-                for (var g = g1; g <= g2; g++) {
-                    for (var b = b1; b <= b2; b++) {
-                        var index = util_1.getColorIndex(r, g, b);
-                        var h = hist[index];
-                        ntot += h;
-                        rsum += (h * (r + 0.5) * mult);
-                        gsum += (h * (g + 0.5) * mult);
-                        bsum += (h * (b + 0.5) * mult);
-                    }
-                }
-            }
-            if (ntot) {
-                this._avg = [
-                    ~~(rsum / ntot),
-                    ~~(gsum / ntot),
-                    ~~(bsum / ntot)
-                ];
-            }
-            else {
-                this._avg = [
-                    ~~(mult * (r1 + r2 + 1) / 2),
-                    ~~(mult * (g1 + g2 + 1) / 2),
-                    ~~(mult * (b1 + b2 + 1) / 2),
-                ];
-            }
-        }
-        return this._avg;
-    };
-    VBox.prototype.contains = function (rgb) {
-        var r = rgb[0], g = rgb[1], b = rgb[2];
-        var _a = this.dimension, r1 = _a.r1, r2 = _a.r2, g1 = _a.g1, g2 = _a.g2, b1 = _a.b1, b2 = _a.b2;
-        r >>= util_1.RSHIFT;
-        g >>= util_1.RSHIFT;
-        b >>= util_1.RSHIFT;
-        return r >= r1 && r <= r2
-            && g >= g1 && g <= g2
-            && b >= b1 && b <= b2;
-    };
-    VBox.prototype.split = function () {
-        var hist = this.hist;
-        var _a = this.dimension, r1 = _a.r1, r2 = _a.r2, g1 = _a.g1, g2 = _a.g2, b1 = _a.b1, b2 = _a.b2;
-        var count = this.count();
-        if (!count)
-            return [];
-        if (count === 1)
-            return [this.clone()];
-        var rw = r2 - r1 + 1;
-        var gw = g2 - g1 + 1;
-        var bw = b2 - b1 + 1;
-        var maxw = Math.max(rw, gw, bw);
-        var accSum = null;
-        var sum;
-        var total;
-        sum = total = 0;
-        var maxd = null;
-        if (maxw === rw) {
-            maxd = 'r';
-            accSum = new Uint32Array(r2 + 1);
-            for (var r = r1; r <= r2; r++) {
-                sum = 0;
-                for (var g = g1; g <= g2; g++) {
-                    for (var b = b1; b <= b2; b++) {
-                        var index = util_1.getColorIndex(r, g, b);
-                        sum += hist[index];
-                    }
-                }
-                total += sum;
-                accSum[r] = total;
-            }
-        }
-        else if (maxw === gw) {
-            maxd = 'g';
-            accSum = new Uint32Array(g2 + 1);
-            for (var g = g1; g <= g2; g++) {
-                sum = 0;
-                for (var r = r1; r <= r2; r++) {
-                    for (var b = b1; b <= b2; b++) {
-                        var index = util_1.getColorIndex(r, g, b);
-                        sum += hist[index];
-                    }
-                }
-                total += sum;
-                accSum[g] = total;
-            }
-        }
-        else {
-            maxd = 'b';
-            accSum = new Uint32Array(b2 + 1);
-            for (var b = b1; b <= b2; b++) {
-                sum = 0;
-                for (var r = r1; r <= r2; r++) {
-                    for (var g = g1; g <= g2; g++) {
-                        var index = util_1.getColorIndex(r, g, b);
-                        sum += hist[index];
-                    }
-                }
-                total += sum;
-                accSum[b] = total;
-            }
-        }
-        var splitPoint = -1;
-        var reverseSum = new Uint32Array(accSum.length);
-        for (var i = 0; i < accSum.length; i++) {
-            var d = accSum[i];
-            if (splitPoint < 0 && d > total / 2)
-                splitPoint = i;
-            reverseSum[i] = total - d;
-        }
-        var vbox = this;
-        function doCut(d) {
-            var dim1 = d + '1';
-            var dim2 = d + '2';
-            var d1 = vbox.dimension[dim1];
-            var d2 = vbox.dimension[dim2];
-            var vbox1 = vbox.clone();
-            var vbox2 = vbox.clone();
-            var left = splitPoint - d1;
-            var right = d2 - splitPoint;
-            if (left <= right) {
-                d2 = Math.min(d2 - 1, ~~(splitPoint + right / 2));
-                d2 = Math.max(0, d2);
-            }
-            else {
-                d2 = Math.max(d1, ~~(splitPoint - 1 - left / 2));
-                d2 = Math.min(vbox.dimension[dim2], d2);
-            }
-            while (!accSum[d2])
-                d2++;
-            var c2 = reverseSum[d2];
-            while (!c2 && accSum[d2 - 1])
-                c2 = reverseSum[--d2];
-            vbox1.dimension[dim2] = d2;
-            vbox2.dimension[dim1] = d2 + 1;
-            return [vbox1, vbox2];
-        }
-        return doCut(maxd);
-    };
-    return VBox;
-}());
-exports.default = VBox;
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ }),
@@ -13528,21 +12479,12 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-<<<<<<< HEAD
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var Vibrant = __webpack_require__(48);
 (function (ns) {
     ns.Vibrant = Vibrant;
 })((typeof window === 'object' && window instanceof Window) ? window : module.exports);
-=======
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var Vibrant = __webpack_require__(48);
-(function (ns) {
-    ns.Vibrant = Vibrant;
-})((typeof window === 'object' && window instanceof Window) ? window : module.exports);
->>>>>>> 03654649ed807f3773581ff898fdcd19cd81cc4f
 
 
 /***/ })
