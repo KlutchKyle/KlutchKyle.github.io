@@ -6,7 +6,7 @@
   background-size: cover;
   -webkit-animation: fadein 0.2s linear 1 normal;
   -webkit-animation-fill-mode: forwards;
-  background-image: url(imgs/screenshot.png);
+  background-image: url();
   background-repeat: no-repeat;
 }
 
