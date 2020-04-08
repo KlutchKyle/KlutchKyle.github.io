@@ -16,7 +16,7 @@
     min-height: 100%;
     width: 100%;
     -webkit-backdrop-filter: blur(10px) contrast(0.9);
-    background-color: rgba(233, 12, 12, 0.137)
+    background-color: rgba(24, 9, 156, 0.137)
 }
 
 #colorLayer {

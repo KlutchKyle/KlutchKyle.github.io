@@ -21,8 +21,9 @@
     var scale = screen.width / siteWidth
     document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');  
     document.getElementById("body").style = "-webkit-animation: fadein 0.2s linear 1 normal; -webkit-animation-fill-mode: forwards";
-    document.getElementById('blur').style.backgroundColor = "rgba(" + blurRed + ", " + blurGreen + ", " + blurBlue + ", " + blurOpacity + ")";
-    document.getElementById('blur').style.WebkitBackdropFilter = "blur(" + blurRadius + ")";
+    //document.getElementById('blur').style.backgroundColor = "rgba(" + blurRed + ", " + blurGreen + ", " + blurBlue + ", " + blurOpacity + ")";
+    //document.getElementById('blur').style.backdropFilter = "blur(" + blurRadius + ")";
+    
 
     var colorMatch = function () {
             let v = new Vibrant('/var/mobile/Library/SpringBoard/LockBackgroundThumbnail.jpg')
@@ -45,6 +46,9 @@
 
         if (matchColor == true) {
             colorMatch();
+        } else if (matchColor == false) {
+            document.getElementById('blur').style = 'content: ""; min-height: 100%; width: 100%; -webkit-backdrop-filter: blur(' + blurRadius + 'px) contrast(0.9); background-color: rgba(' + blurRed + ', ' + blurGreen + ', ' + blurBlue + ', ' + blurOpacity + '); }';
+
         }
 
 
