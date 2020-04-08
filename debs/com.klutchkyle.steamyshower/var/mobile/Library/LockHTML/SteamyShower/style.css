@@ -3,7 +3,7 @@
     padding: 0;
     overflow: hidden;
     height: 100%;
-    background-image: url(imgs/testscreenshot.png);
+    background-image: url();
     -webkit-animation: fadein 0.2s linear 1 normal;
     -webkit-animation-fill-mode: forwards;
     background-repeat: no-repeat;
