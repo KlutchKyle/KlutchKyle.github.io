@@ -39,7 +39,7 @@
                 console.log(b);
                 var colorRGB = r + ', ' + g + ', ' + b;
                 console.log(colorRGB + " running");
-                document.getElementById('blur').style.backgroundColor = "rgba(" + colorRGB + ", " + blurOpacity + ")";
+                document.getElementById('blur').style = 'content: ""; min-height: 100%; width: 100%; -webkit-backdrop-filter: blur(' + blurRadius + 'px) contrast(0.9); background-color: rgba(' + colorRGB + ', ' + blurOpacity + '); }';
 
             });
         }
